@@ -2,24 +2,7 @@
 
 ## Phase 0: Programming Foundations & Mathematics (2-3 weeks)
 
-### Week 1-2: Python + Math Essentials
-
-**What to Learn:**
-
-- Linear Algebra: Matrix operations, eigenvalues, eigenvectors
-- Calculus: Differentiation and integration, partial derivatives
-- Probability & Statistics: Bayes theorem, distributions, statistical significance
-- Programming: Python is a must, with libraries like NumPy, Pandas, and Matplotlib
-- Algorithms: Basics of data structures and algorithms (search, sort, graph traversal)
-
-- **Practice platforms:** Kaggle for Python
-
-**Projects:**
-
-- [Implement matrix operations from scratch](./week-1-2/23.matrixOpr.py)
-- [Build basic statistical analysis & data visualization dashboard](./week-1-2/33.dashboard.py)
-
-**Time Investment:** 20-30 hours
+### [Week 1-2: Python + Math Essentials](./week-1-2-python-basics/readme.md)
 
 ---
 

@@ -1,2 +1,0 @@
-94ba12e init and regularisation
-56cc81b neural network init with deep learning

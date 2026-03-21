@@ -57,3 +57,137 @@ Regularization reduces variance (overfitting) at the cost of a slight increase i
   - Scale activations during training to keep expected values consistent.
 
 Regularization reduces overfitting and improves model generalization.
+
+---
+
+## Optimization Methods: Gradient Descent, Momentum, Adam
+
+Until now, we've used basic gradient descent to update parameters. Advanced optimization methods can speed up learning and achieve better results.
+
+### 1. Mini-Batch Gradient Descent
+
+Instead of using all m examples (batch GD) or just 1 example (SGD), mini-batch GD uses intermediate-sized batches.
+
+**Steps:**
+1. **Shuffle**: Randomly shuffle training data (X, Y) keeping alignment
+2. **Partition**: Split into mini-batches of size `mini_batch_size`
+
+```python
+def random_mini_batches(X, Y, mini_batch_size=64, seed=0):
+    # Shuffle
+    permutation = list(np.random.permutation(m))
+    shuffled_X = X[:, permutation]
+    shuffled_Y = Y[:, permutation]
+    
+    # Partition into complete mini-batches
+    for k in range(num_complete_minibatches):
+        mini_batch_X = shuffled_X[:, k*mini_batch_size:(k+1)*mini_batch_size]
+        mini_batch_Y = shuffled_Y[:, k*mini_batch_size:(k+1)*mini_batch_size]
+    
+    # Handle last mini-batch (may be smaller)
+```
+
+### 2. Gradient Descent Update
+
+$$W^{[l]} = W^{[l]} - \alpha \cdot dW^{[l]}$$
+$$b^{[l]} = b^{[l]} - \alpha \cdot db^{[l]}$$
+
+### 3. Momentum
+
+Momentum uses exponentially weighted averages of past gradients to smooth out updates.
+
+**Update Rule:**
+$$v_{dW^{[l]}} = \beta v_{dW^{[l]}} + (1 - \beta) dW^{[l]}$$
+$$W^{[l]} = W^{[l]} - \alpha v_{dW^{[l]}}$$
+
+- $\beta$ (momentum): typically 0.9
+- Helps reduce oscillations, faster convergence
+
+### 4. Adam (Adaptive Moment Estimation)
+
+Combines Momentum and RMSProp. Maintains two moving averages:
+- $v$: exponentially weighted average of gradients (first moment)
+- $s$: exponentially weighted average of squared gradients (second moment)
+
+**Update Rule:**
+$$v_{dW^{[l]}} = \beta_1 v_{dW^{[l]}} + (1 - \beta_1) dW^{[l]}$$
+$$v^{corrected}_{dW^{[l]}} = \frac{v_{dW^{[l]}}}{1 - \beta_1^t}$$
+$$s_{dW^{[l]}} = \beta_2 s_{dW^{[l]}} + (1 - \beta_2) (dW^{[l]})^2$$
+$$s^{corrected}_{dW^{[l]}} = \frac{s_{dW^{[l]}}}{1 - \beta_2^t}$$
+$$W^{[l]} = W^{[l]} - \alpha \frac{v^{corrected}_{dW^{[l]}}}{\sqrt{s^{corrected}_{dW^{[l]}}} + \varepsilon}$$
+
+- $\beta_1$: typically 0.9
+- $\beta_2$: typically 0.999
+- $\varepsilon$: 1e-8 (prevents division by zero)
+
+### Summary
+
+| Method | Pros | Cons |
+|--------|------|------|
+| GD | Simple | Slow, can get stuck |
+| Mini-batch GD | Faster, better convergence | Requires tuning batch size |
+| Momentum | Reduces oscillations | Needs $\beta$ tuning |
+| Adam | Fast, adaptive learning rates | More hyperparameters |
+
+**Key Takeaways:**
+- Mini-batch size powers of 2 (16, 32, 64, 128) work well
+- Adam usually converges fastest with minimal tuning
+- Momentum helps in curved valleys
+- Bias correction needed for Adam in early iterations
+
+---
+
+## TensorFlow Framework Transition
+
+Transition from NumPy implementation to TensorFlow for faster development and automatic differentiation.
+
+### Key Differences
+
+| NumPy | TensorFlow |
+|-------|------------|
+| Manual forward/backward | Automatic with `GradientTape` |
+| NumPy arrays | `tf.Tensor` |
+| Manual parameter updates | `optimizer.apply_gradients()` |
+| No computation graph | `@tf.function` for optimization |
+
+### Core Functions
+
+```python
+# tf.Variable - mutable parameters (like our NumPy arrays)
+W1 = tf.Variable(initializer(shape=(25, 12288)), name="W1")
+
+# @tf.function - compiles to optimized graph
+@tf.function
+def forward_propagation(X, parameters):
+    Z1 = tf.add(tf.matmul(W1, X), b1)
+    A1 = tf.keras.activations.relu(Z1)
+    ...
+
+# GradientTape - automatic differentiation
+with tf.GradientTape() as tape:
+    Z3 = forward_propagation(minibatch_X, parameters)
+    minibatch_cost = compute_cost(Z3, minibatch_Y)
+
+grads = tape.gradient(minibatch_cost, trainable_variables)
+optimizer.apply_gradients(zip(grads, trainable_variables))
+
+# tf.data.Dataset - efficient data pipeline
+dataset = tf.data.Dataset.from_tensor_slices((X, Y))
+dataset = dataset.batch(32).prefetch(8)
+```
+
+### Files
+- **tensorflow_model.py**: Full TensorFlow implementation
+
+### Running
+```bash
+source venv/bin/activate
+python tensorflow_model.py
+```
+
+### Advantages of TensorFlow
+- Automatic differentiation (no manual backprop)
+- GPU acceleration
+- Optimized computation graphs
+- Built-in optimizers (`tf.keras.optimizers.Adam`, etc.)
+- Efficient data pipelines with `tf.data`
