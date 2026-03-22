@@ -1,5 +1,7 @@
 # Recurrent Neural Networks from Scratch
 
+- [Awesome Deep Learning](https://github.com/ChristosChristofidis/awesome-deep-learning) — reference list, not a curriculum
+
 ## RNN (Basic)
 
 ### Forward Pass

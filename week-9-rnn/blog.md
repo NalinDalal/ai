@@ -1,4 +1,4 @@
-# Building RNN and LSTM from Scratch
+# [Building RNN and LSTM from Scratch](https://medium.com/p/d8e9759e47a8?postPublishedType=initial)
 
 ## Overview
 
