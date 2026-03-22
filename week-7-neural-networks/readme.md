@@ -19,3 +19,6 @@
 ---
 
 # [Own Neural Network](./own-neural-net/readme.md)
+
+
+**Project - Own MicroGrad** , [local copy](./micrograd/readme.md)
