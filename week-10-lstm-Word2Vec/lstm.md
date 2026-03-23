@@ -65,6 +65,39 @@ It's now time to update the old cell state, Ct-1, into the new cell state Ct. We
 
 Finally, we need to decide what we're going to output. This output will be based on our cell state, but will be a filtered version. First, we run a sigmoid layer which decides what parts of the cell state we're going to output. Then, we put the cell state through tanh (to push the values to be between -1 and 1) and multiply it by the output of the sigmoid gate, so that we only output the parts we decided to.
 
+## Original LSTM Paper (Hochreiter & Schmidhuber 1997) — Key Gate Concepts
+
+### The Core Innovation: Constant Error Carousel
+The original LSTM paper introduced a mechanism to solve the vanishing gradient problem through **constant error flow**:
+
+- **Memory Cells**: Special units that maintain error gradients over long time periods
+- **Constant Error Carousel**: Error signals circulate within memory cells without being multiplied by derivatives, preventing exponential decay
+
+### Gate Units (Original 1997 Architecture)
+
+**1. Input Gate (in)**
+- Controls what new information enters the memory cell
+- Learning to open/close access to the cell
+- Equation: `in(t) = σ(W_in * [x(t), h(t-1)] + b_in)`
+
+**2. Output Gate (out)** 
+- Controls what information is sent to the rest of the network
+- Filters what parts of memory cell content to output
+
+**3. Forget Gate** (added in later variants by Gers & Schmidhuber 2000)
+- Allows the cell to reset its state
+- Not in original 1997 paper
+
+### Key Differences from Colah's Explanation
+- Colah shows modern 3-gate LSTM (forget, input, output)
+- Original paper had input gate + output gate only (no forget gate)
+- The forget gate was a later addition
+
+### Why Gates Solve Vanishing Gradients
+1. Gates use **multiplicative units** that can pass gradients unchanged (when open = 1)
+2. Gradient doesn't decay exponentially through time when gate is "open"
+3. Network can learn to store info for 1000+ time steps
+
 ## Variants on Long Short Term Memory
 
 What I've described so far is a pretty normal LSTM. But not all LSTMs are the same as the above. In fact, it seems like almost every paper involving LSTMs uses a slightly different version. The differences are minor, but it's worth mentioning some of them.
