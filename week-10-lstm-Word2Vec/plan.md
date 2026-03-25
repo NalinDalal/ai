@@ -22,8 +22,6 @@ Day 4 (Wednesday) — 4-5 hrs
 - Train at 100k steps if time allows
 - Document gradient norm behavior
 
-[read this](https://colah.github.io/posts/2015-08-Understanding-LSTMs/)
-
 
 Day 5 (Thursday) — 4-5 hrs
 - Read Word2Vec papers (both Mikolov papers)
