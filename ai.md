@@ -8,138 +8,21 @@
 
 ## Phase 1: Classical Machine Learning Foundations (3-4 weeks)
 
-### Week 3-6: Core & Advanced Machine Learning
-
-**What to Learn:**
-
-- Supervised Learning: Linear regression, logistic regression, decision trees
-  - [Linear Regression: Galton (1886)](https://galton.org/essays/1880-1889/galton-1886-family-likeness-stature.pdf)
-  - [Decision Trees: Quinlan (1986)](https://hunch.net/~coms-4771/quinlan.pdf)
-
-- Unsupervised Learning: Clustering (K-means, DBSCAN), PCA
-- Model Evaluation: Metrics like accuracy, precision, recall, F1-score
-- Feature Engineering: Data preprocessing, handling missing data
-- Frameworks: Scikit-learn for ML models
-
-- **Hands-on:**
-  - Work on datasets like Titanic (classification) or Boston Housing (regression) on Kaggle
-
-5. **Projects:**
-
-- Predictive model for stock price forecasting
-- Customer segmentation analysis
-- Complete Kaggle Titanic competition
-
-**Time Investment:** 60-70 hours
-
-https://www.cse.iitd.ac.in/~mausam/courses/col333/autumn2025/
+### [Week 3-6: Core & Advanced Machine Learning](./week-3-ml/readme.md)
 
 ---
 
-## Phase 2: [Deep Learning](https://d2l.ai/chapter_preface/index.html) Foundations + Core Papers (4-5 weeks)
+## Phase 2: Deep Learning Foundations + Core Papers (4-5 weeks)
 
-### Week 7: Neural Network Fundamentals + Stage A Papers
+### Week 7: [Neural Network Fundamentals](./week-7-neural-networks/readme.md)
 
-[Paper reading](https://jalexine.github.io/fix-your-paper-reading-game.html)
+### Week 8: [Convolutional Networks](./week-8-cnn/readme.md)
 
-**Stage A — Roots & Learning Fundamentals (EXACT ORDER):**
+### Week 9: [Deep Learning](./week-9-deep-learning/readme.md) + [Recurrent Neural networks](./week-9-rnn/readme.md) + [Karpaathy implementation](./week-9-rnn-karpathy/readme.md)
 
-1. [**McCulloch & Pitts (1943)** — neurons as logic gates](https://pabloinsente.github.io/the-mcculloch-pitts-artificial-neuron-model)
-   - **Mini-project:** [Implement a logical gate network](https://ijettjournal.org/2017/volume-45/number-2/IJETT-V45P212.pdf)
-   - **Why it matters:** Foundation of neural computation
+### Week 10: [LSTM+Word2Vec](./week-10-lstm-Word2Vec/readme.md)
 
-2. [**Rosenblatt (1958)** — Perceptron](https://www.ling.upenn.edu/courses/cogs501/Rosenblatt1958.pdf)
-   - **Mini-project:** Perceptron on AND/OR
-   - **Why it matters:** First trainable neural classifier
-   - [simulation](https://playbackpress.com/books/cppbook/chapter/12/3?comment=2)
-
-3. [**Rumelhart, Hinton & Williams (1986)** — Backpropagation](https://github.com/georgezoto/Convolutional-Neural-Networks/blob/master/Papers/1986%20Backpro%20Learning%20representations%20by%20back-propagating%20errors%20-%20Rumelhart,%20Hinton,%20Williams.pdf)
-   - **Mini-project:** Single-hidden-layer NN in NumPy, implement gradient check
-   - **Why it matters:** Enables training of deep networks
-
-**How to Learn:**
-
-- "Deep Learning Specialization" by Andrew Ng (Coursera)
-- "Fast.ai Deep Learning for Coders"
-
-**Time Investment:** 25-30 hours
-
-### Week 8: Convolutional Networks + Stage B Papers
-
-**Stage B — Conv nets & Vision Basics:**
-
-4. [**LeCun et al. (1989)** - "Backpropagation Applied to Handwritten Zip Code Recognition"; Early CNNs](http://yann.lecun.com/exdb/publis/pdf/lecun-89e.pdf)
-   - **Mini-project:** Small CNN on MNIST (NumPy → PyTorch)
-
-5. [ImageNet Classification with Deep Convolutional Neural Networks **Krizhevsky, Sutskever & Hinton (2012)** — AlexNet (ImageNet breakthrough)](http://papers.neurips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)
-   - **Mini-project:** Train small CNN on CIFAR-10; use data augmentation
-
-6. [**He et al. (2016)** — Deep Residual Learning for Image Recognition ; ResNet (skip connections)](https://arxiv.org/pdf/1512.03385)
-
-[Medium Article](https://medium.com/@shadmansobhan114/understanding-residual-network-resnet-skip-connection-c444a1accfe9)
-
-- **Mini-project:** Implement ResNet-18 in PyTorch; compare with plain net
-
-**Projects:**
-
-- Build a digit recognizer (MNIST dataset)
-- Create an image classifier using CNNs
-- Build CNN-based object detector
-
-**Additional Resources:**
-
-- [Vision Transformer](https://paperswithcode.com/method/vision-transformer)
-- VGG: [Very Deep Convolutional Networks for Large-Scale Image Recognition](https://arxiv.org/pdf/1409.1556) (2014)
-
-**Time Investment:** 30-35 hours
-
-### Week 9-10: Sequence Models + Stage C Papers
-
-**Stage C — Sequences → Attention:**
-
-7. [**Hochreiter & Schmidhuber (1997)** - LSTM](https://www.bioinf.jku.at/publications/older/2604.pdf)
-   - **Mini-project:** Char-level LSTM text generator (Shakespeare)
-   - **Resource:** ["Understanding LSTM Networks" by Christopher Olah](https://colah.github.io/posts/2015-08-Understanding-LSTMs/)
-   - [**Implementation**](https://github.com/wojzaremba/lstm)
-
-8. [**Word2Veq** Efficient Estimation of Word Representations in Vector Space](https://arxiv.org/pdf/1301.3781) (2013)
-
-9. [**Distributed Representations of Words and Phrases and their Compositionality**](https://arxiv.org/pdf/1310.4546) (2013), [implementation](https://github.com/SkalskiP/vlms-zero-to-hero/blob/master/01_natural_language_processing_fundamentals/01_01_word2vec_with_sub_sampling_and_negative_sampling_in_pytorch.ipynb)
-
-10. [**Sutskever, Vinyals & Le (2014)** — Seq2Seq](https://arxiv.org/pdf/1409.3215)
-
-- **Mini-project:** Toy English→French translator (seq2seq)
-
-11. [**Bahdanau, Cho & Bengio (2014)** — Attention for NMT](https://arxiv.org/pdf/1409.0473)
-
-- **Mini-project:** Add attention to your seq2seq
-
-10. [**Bahdanau, Cho & Bengio (2014)** - "Neural Machine Translation by Jointly Learning to Align and Translate"](https://arxiv.org/pdf/1409.0473)
-
-**Additional Resources:**
-
-- ["The Unreasonable Effectiveness of Recurrent Neural Networks" by Andrej Karpathy](https://karpathy.github.io/2015/05/21/rnn-effectiveness/) ([Code](https://github.com/karpathy/char-rnn))
-- [Recurrent Neural Network Regularization](https://arxiv.org/abs/1409.2329) ([Code](https://github.com/wojzaremba/lstm), [karpathy blog](https://karpathy.github.io/2015/05/21/rnn-effectiveness/))
-- [Pointer Networks](https://papers.nips.cc/paper/5866-pointer-networks)
-- [Order Matters: Sequence to sequence for sets](https://arxiv.org/abs/1511.06391)
-
-**Harkirat Resources:**
-
-- [NL/DL](https://youtube.com/playlist?list=PLblh5JKOoLUIxGDQs4LFFD--41Vzf-ME1)
-- [Karpathy DL Series](https://youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
-- [NLP Playlist](https://youtube.com/playlist?list=PLoROMvodv4rOhcuXMZkNm7j3fVwBBY42z)
-
-**Time Investment:** 35-40 hours
-
-### Week 11: Deep Learning Mastery
-
-**Resources:**
-
-- [Awesome Deep Learning](https://github.com/ChristosChristofidis/awesome-deep-learning)
-- Complete advanced CNN architectures
-- GPU acceleration course
-
-**Time Investment:** 25-30 hours
+### Week 11: [Sequence Models + Stage C Papers](./week-11-sequence/readme.md)
 
 ---
 
@@ -155,6 +38,7 @@ https://www.cse.iitd.ac.in/~mausam/courses/col333/autumn2025/
       - [Vision Transformer](https://paperswithcode.com/method/vision-transformer)
       - [**Switch Transformer** - "Switch Transformer: Scaling to Trillion Parameter Models"](https://arxiv.org/pdf/2101.03961)
       - [**Char-RNN**](https://github.com/karpathy/char-rnn)
+    - [yt-lec](https://youtu.be/XXtpJxZBa2c?si=oc6fOm5VPPCYFauY)
 
 - **Why it matters:** Attention-only, no RNNs - changed everything
 
@@ -609,78 +493,5 @@ CLIP: [Learning Transferable Visual Models from Natural Language Supervision](ht
 - **Kolmogorov Complexity and Algorithmic Randomness**
 - **CS231n: Convolutional Neural Networks for Visual Recognition**
 
----
 
-## How to Read Each Paper (Strict 6-Step Recipe)
 
-**Do this for EVERY paper before moving on:**
-
-1. **Skim (10-15m):** Title, abstract, intro, conclusion, figures. Note the single-sentence claim.
-2. **Questions (5m):** Write 3 questions the paper answers.
-3. **Deep read (30-60m):** Methods + key equations; rederive one equation by hand.
-4. **Code hunt (15-30m):** Find official / PapersWithCode / GitHub implementation.
-5. **Implement (4-12h depending on project):** Reproduce one core experiment or reimplement a core block (small dataset). **Always** implement from scratch at least once (NumPy or PyTorch).
-6. **Summarize (20-30m):** 300-500 words: 1) problem, 2) method, 3) main result, 4) limitations, 5) a one-line idea for extending it.
-
-**Mini-rule:** If you can't implement a minimal version in 2 days, you didn't read it properly.
-
----
-
-#### Project Documentation
-
-- Building a chatGPT / Midjourney - like bot for a niche persona / use-case and integrate it with WhatsApp or Slack or Discord or build an app using Streamlit /Gradio.
-- Chrome extension to summarise / ideate / extract takeaways / research with web pages.
-- Create a news aggregator for a targeted persona (PMs, Al Engg., )
-- Multi-modal generation via Discord.
-
----
-
-## Final Milestone: Capstone Project
-
-### Ultimate Integration Project (Week 32-34)
-
-**Build a Complete AI System That Combines Everything You've Learned**
-
-1. Agent framework
-2. RL Finetuning project + writing evals
-3. Devin
-4. Memory Framework
-
-#### Project Requirements:
-
-1. **Data Pipeline:** Automated data collection and preprocessing
-2. **Classical ML:** Feature engineering and baseline models
-3. **Deep Learning:** Custom neural network architecture
-4. **LLM Integration:** Language understanding and generation
-5. **RAG System:** Knowledge retrieval and augmentation
-6. **AI Agents:** Multi-agent workflow orchestration
-7. **Safety & Alignment:** Content filtering and ethical AI practices
-8. **Production Deployment:** Scalable API with monitoring
-9. **User Interface:** Web app or mobile interface
-10. **Documentation:** Complete technical documentation
-
-#### Example Capstone Ideas:
-
-- **AI Research Assistant:** Multi-agent system that reads papers, synthesizes findings, and generates research proposals
-- **Intelligent Code Review System:** Combines static analysis, ML models, and LLMs for comprehensive code review
-- **Personal AI Tutor:** Adaptive learning system with multimodal understanding and personalized teaching strategies
-- **Autonomous Trading System:** Combines market analysis, sentiment analysis, and risk management with AI agents
-- **Creative AI Studio:** Multi-modal generative system for content creation across text, images, and code
-
----
-
-[voice ai](https://youtu.be/oU_rr-bOrK8?si=krryAFS9_GfHt6IV)
-[live ai voice](https://youtu.be/vaCTaUEpqvE?si=o0yM9FzIAE3EwgDS)
-
----
-
-Let's build our own agent, like I give my schedule to an api, which sets it
-Then every time I push anything, like say I have a slot for 10:30 to read for system design and interviews
-
-Now I can across something like an article so I push it to api the link of it
-
-Now at 10:30 it reminds me of my slot, also gives option to read that article
-
-I have slot in morning 7 to 9 for dsa and cp, so I say to it I wanna practice good stuff in dp, it fetches me awesome questions on them and push me then at specified timemaybe also gives out good stuff to read and revise
-
-How's the idea, basically does everything based upon the context
