@@ -1,4 +1,6 @@
-# [Distributed Representations of Words and Phrases and their Compositionality- Mikolov et al. (2013)](https://arxiv.org/pdf/1310.4546)
+# Distributed Representations of Words and Phrases and their Compositionality
+
+> Mikolov et al. (2013) — [Paper](https://arxiv.org/pdf/1310.4546)
 
 ---
 
