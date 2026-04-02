@@ -20,10 +20,10 @@ python train.py          # NumPy version
 python seq2seq_pytorch.py # PyTorch version
 ```
 
-## Papers
+**Mini-project:** Toy English→French translator (seq2seq)
+[Eng2Fre](./Eng2Fre.md)
 
-Day 3(02.04): 
-- **Mini-project:** Toy English→French translator (seq2seq)
+## Papers
 
 Day 4(03.04):
 - 11. [**Bahdanau, Cho & Bengio (2014)** - "Neural Machine Translation by Jointly Learning to Align and Translate"](https://arxiv.org/pdf/1409.0473)
