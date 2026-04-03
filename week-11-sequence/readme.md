@@ -23,11 +23,7 @@ python seq2seq_pytorch.py # PyTorch version
 **Mini-project:** Toy English→French translator (seq2seq)
 [Eng2Fre](./Eng2Fre.md)
 
-## Papers
-
-Day 4(03.04):
-- 11. [**Bahdanau, Cho & Bengio (2014)** - "Neural Machine Translation by Jointly Learning to Align and Translate"](https://arxiv.org/pdf/1409.0473)
-- [yt-link](https://youtu.be/XXtpJxZBa2c?si=oc6fOm5VPPCYFauY)
+[Neural Machine Translation by Jointly Learning to Align and Translate](./NMT.md)
 
 
 day 5(04.04):
