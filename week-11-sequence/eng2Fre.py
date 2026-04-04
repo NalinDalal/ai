@@ -1,19 +1,21 @@
 """
-eng2Fre.py - Toy English to French Translator (Seq2Seq)
+eng2Fre.py - Toy English to French Translator (Seq2Seq with Attention)
 
-A simple seq2seq model for English→French translation using LSTM encoder-decoder.
-Based on Sutskever, Vinyals & Le (2014) paper on Sequence to Sequence Learning.
+A seq2seq model for English→French translation using LSTM encoder-decoder with Bahdanau attention.
+Based on Sutskever, Vinyals & Le (2014) and Bahdanau, Cho & Bengio (2014).
 
 Usage:
     python eng2Fre.py --train          # Train the model
     python eng2Fre.py --translate "hello"  # Translate a sentence
     python eng2Fre.py --demo           # Run demo with test sentences
+    python eng2Fre.py --attention      # Use attention model (default now)
 """
 
 import argparse
 import random
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 import torch.optim as optim
 from torch.utils.data import Dataset, DataLoader
 from typing import List, Tuple, Optional
@@ -96,6 +98,9 @@ class Encoder(nn.Module):
     Architecture:
         - Embedding layer: maps token indices to dense vectors
         - LSTM: processes the embedded sequence
+    
+    For attention, we need ALL encoder hidden states, not just the final one.
+    This is different from basic Seq2Seq where only the final state is used.
     """
     
     def __init__(self, vocab_size: int, embed_dim: int, hidden_dim: int, 
@@ -107,17 +112,19 @@ class Encoder(nn.Module):
             batch_first=True, dropout=dropout if num_layers > 1 else 0
         )
     
-    def forward(self, x: torch.Tensor) -> Tuple[torch.Tensor, torch.Tensor]:
+    def forward(self, x: torch.Tensor) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
         """
         Args:
             x: Source token indices (batch_size, seq_len)
         Returns:
             hidden: Final hidden state (num_layers, batch, hidden_dim)
             cell: Final cell state (num_layers, batch, hidden_dim)
+            outputs: All encoder hidden states (batch, seq_len, hidden_dim)
+                - Used by attention mechanism to compute context
         """
         embedded = self.embedding(x)
-        _, (hidden, cell) = self.lstm(embedded)
-        return hidden, cell
+        outputs, (hidden, cell) = self.lstm(embedded)
+        return hidden, cell, outputs
 
 
 class Decoder(nn.Module):
@@ -129,6 +136,9 @@ class Decoder(nn.Module):
         - Embedding layer: maps token indices to dense vectors
         - LSTM: generates next token based on previous token and hidden state
         - Linear: projects LSTM output to vocabulary size for prediction
+    
+    Note: This is the basic decoder WITHOUT attention.
+    For attention, use DecoderAttention instead.
     """
     
     def __init__(self, vocab_size: int, embed_dim: int, hidden_dim: int,
@@ -159,6 +169,80 @@ class Decoder(nn.Module):
         return predictions, hidden, cell
 
 
+class DecoderAttention(nn.Module):
+    """
+    LSTM Decoder with Bahdanau (Additive) Attention.
+    
+    The attention mechanism allows the decoder to "look at" all encoder hidden states
+    at each decoding step, rather than relying solely on a fixed context vector.
+    
+    Bahdanau Attention (also called "additive attention"):
+        1. Compute attention scores: e_t = v^T * tanh(W_a * s_t + U_a * h_i)
+        2. Compute attention weights: α_t = softmax(e_t)
+        3. Compute context vector: c_t = Σ α_t[i] * h_i
+        
+    Where:
+        - s_t = decoder hidden state at time t (query)
+        - h_i = encoder hidden state at time i (key/value)
+        - α_t[i] = attention weight for encoder state i
+        
+    Reference: Bahdanau, Cho & Bengio (2014) - "Neural Machine Translation by Jointly Learning to Align and Translate"
+    """
+    
+    def __init__(self, vocab_size: int, embed_dim: int, hidden_dim: int,
+                 num_layers: int = 1, dropout: float = 0.2):
+        super().__init__()
+        self.embedding = nn.Embedding(vocab_size, embed_dim, padding_idx=0)
+        self.lstm = nn.LSTM(
+            embed_dim + hidden_dim, hidden_dim, num_layers,
+            batch_first=True
+        )
+        
+        self.W_a = nn.Linear(hidden_dim, hidden_dim)
+        self.U_a = nn.Linear(hidden_dim, hidden_dim)
+        self.v_a = nn.Linear(hidden_dim, 1)
+        
+        self.fc = nn.Linear(hidden_dim, vocab_size)
+        self.hidden_dim = hidden_dim
+    
+    def forward(self, x: torch.Tensor, hidden: torch.Tensor, 
+                cell: torch.Tensor, encoder_outputs: torch.Tensor) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
+        """
+        Forward pass with attention.
+        
+        Args:
+            x: Input token indices (batch_size, 1)
+            hidden: Decoder hidden state (num_layers, batch, hidden_dim)
+            cell: Decoder cell state (num_layers, batch, hidden_dim)
+            encoder_outputs: All encoder hidden states (batch, src_len, hidden_dim)
+        
+        Returns:
+            output: Vocabulary logits (batch_size, 1, vocab_size)
+            hidden: Updated hidden state
+            cell: Updated cell state
+        """
+        batch_size = x.size(0)
+        
+        embedded = self.embedding(x)
+        
+        s_t = hidden[-1].unsqueeze(1).expand(-1, encoder_outputs.size(1), -1)
+        
+        scores = self.v_a(torch.tanh(self.W_a(s_t) + self.U_a(encoder_outputs)))
+        scores = scores.squeeze(2)
+        
+        attn_weights = F.softmax(scores, dim=1)
+        
+        context = torch.bmm(attn_weights.unsqueeze(1), encoder_outputs)
+        context = context.squeeze(1)
+        
+        lstm_input = torch.cat([embedded.squeeze(1), context], dim=1).unsqueeze(1)
+        
+        output, (hidden, cell) = self.lstm(lstm_input, (hidden, cell))
+        
+        predictions = self.fc(output)
+        return predictions, hidden, cell
+
+
 class Seq2Seq(nn.Module):
     """
     Complete Sequence-to-Sequence model with Encoder-Decoder architecture.
@@ -176,10 +260,17 @@ class Seq2Seq(nn.Module):
     
     def __init__(self, input_vocab_size: int, output_vocab_size: int,
                  embed_dim: int = 256, hidden_dim: int = 512, 
-                 num_layers: int = 2, dropout: float = 0.2):
+                 num_layers: int = 2, dropout: float = 0.2,
+                 use_attention: bool = True):
         super().__init__()
+        self.use_attention = use_attention
         self.encoder = Encoder(input_vocab_size, embed_dim, hidden_dim, num_layers, dropout)
-        self.decoder = Decoder(output_vocab_size, embed_dim, hidden_dim, num_layers, dropout)
+        
+        if use_attention:
+            self.decoder = DecoderAttention(output_vocab_size, embed_dim, hidden_dim, num_layers, dropout)
+        else:
+            self.decoder = Decoder(output_vocab_size, embed_dim, hidden_dim, num_layers, dropout)
+        
         self.output_vocab_size = output_vocab_size
     
     def forward(self, src: torch.Tensor, tgt: torch.Tensor, 
@@ -200,11 +291,15 @@ class Seq2Seq(nn.Module):
         
         outputs = torch.zeros(batch_size, tgt_len, self.output_vocab_size, device=src.device)
         
-        hidden, cell = self.encoder(src)
+        hidden, cell, encoder_outputs = self.encoder(src)
         
         decoder_input = tgt[:, 0:1]
         for t in range(1, tgt_len):
-            output, hidden, cell = self.decoder(decoder_input, hidden, cell)
+            if self.use_attention:
+                output, hidden, cell = self.decoder(decoder_input, hidden, cell, encoder_outputs)
+            else:
+                output, hidden, cell = self.decoder(decoder_input, hidden, cell)
+            
             outputs[:, t] = output.squeeze(1)
             
             teacher_force = random.random() < teacher_forcing_ratio
@@ -229,12 +324,16 @@ class Seq2Seq(nn.Module):
         """
         self.eval()
         with torch.no_grad():
-            hidden, cell = self.encoder(src)
+            hidden, cell, encoder_outputs = self.encoder(src)
             decoder_input = torch.tensor([[sos_idx]], device=src.device)
             
             translations = []
             for _ in range(max_len):
-                output, hidden, cell = self.decoder(decoder_input, hidden, cell)
+                if self.use_attention:
+                    output, hidden, cell = self.decoder(decoder_input, hidden, cell, encoder_outputs)
+                else:
+                    output, hidden, cell = self.decoder(decoder_input, hidden, cell)
+                
                 top1 = output.argmax(2)
                 token = top1.item()
                 
@@ -388,7 +487,7 @@ def translate_sentence(model: nn.Module, sentence: str,
 
 def main():
     """Main function for training and testing the translator."""
-    parser = argparse.ArgumentParser(description='Toy English→French Translator (Seq2Seq)')
+    parser = argparse.ArgumentParser(description='Toy English→French Translator (Seq2Seq with Attention)')
     parser.add_argument('--train', action='store_true', help='Train the model')
     parser.add_argument('--translate', type=str, help='Translate a sentence')
     parser.add_argument('--demo', action='store_true', help='Run demo with test sentences')
@@ -396,6 +495,7 @@ def main():
     parser.add_argument('--embed_dim', type=int, default=128, help='Embedding dimension')
     parser.add_argument('--hidden_dim', type=int, default=256, help='Hidden dimension')
     parser.add_argument('--batch_size', type=int, default=4, help='Batch size')
+    parser.add_argument('--no-attention', action='store_true', help='Disable attention mechanism')
     args = parser.parse_args()
     
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -417,13 +517,19 @@ def main():
     train_dataset = TranslationDataset(src_sentences, tgt_sentences, src_vocab, tgt_vocab)
     train_loader = DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True)
     
+    use_attention = not args.no_attention
+    
     model = Seq2Seq(
         input_vocab_size=len(src_vocab),
         output_vocab_size=len(tgt_vocab),
         embed_dim=args.embed_dim,
         hidden_dim=args.hidden_dim,
-        num_layers=2
+        num_layers=2,
+        use_attention=use_attention
     ).to(device)
+    
+    attention_status = "with Attention (Bahdanau)" if use_attention else "without Attention"
+    print(f"Model: Seq2Seq {attention_status}\n")
     
     criterion = nn.CrossEntropyLoss(ignore_index=0)
     optimizer = optim.Adam(model.parameters(), lr=0.001)
