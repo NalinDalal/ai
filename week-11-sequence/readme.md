@@ -24,7 +24,3 @@ python seq2seq_pytorch.py # PyTorch version
 [Eng2Fre](./Eng2Fre.md)
 
 [Neural Machine Translation by Jointly Learning to Align and Translate](./NMT.md)
-
-
-day 5(04.04):
-- **Mini-project:** Add attention to your seq2seq
