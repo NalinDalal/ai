@@ -340,3 +340,73 @@ Learning rate increases linearly for the first $warmup\_steps = 4000$ steps, the
 ### English Constituency Parsing (Table 4)
 - 4-layer Transformer achieves **91.3 F1** (WSJ only) and **92.7 F1** (semi-supervised)
 - Outperforms all prior models except the RNN Grammar, with no task-specific tuning
+
+---
+
+# Implementation (`transformer.py`)
+
+## Class Hierarchy
+
+```
+Transformer (transformer.py:136)
+├── PositionalEncoding (line 12)
+├── MultiHeadAttention (line 32)
+│   └── W_q, W_k, W_v, W_o linear layers
+├── FeedForward (line 75)
+│   └── linear1 → ReLU → linear2
+├── EncoderLayer (line 86)
+│   ├── self_attn (MultiHeadAttention)
+│   ├── feed_forward (FeedForward)
+│   └── norm1, norm2 (LayerNorm)
+└── DecoderLayer (line 108)
+    ├── self_attn (MultiHeadAttention)
+    ├── cross_attn (MultiHeadAttention)
+    ├── feed_forward (FeedForward)
+    └── norm1, norm2, norm3 (LayerNorm)
+```
+
+## Key Implementation Details
+
+### Positional Encoding (line 12-29)
+```python
+pe[pos, 2i]     = sin(pos / 10000^(2i/d_model))
+pe[pos, 2i+1]   = cos(pos / 10000^(2i/d_model))
+```
+- Pre-computed and stored as buffer
+- Added to embeddings before dropout
+
+### Multi-Head Attention (line 48-72)
+```python
+scores = (Q × K^T) / sqrt(d_k)
+attn = softmax(scores, dim=-1)
+output = attn × V
+```
+- Splits heads via `.view()` and `.transpose()`
+- Masking: sets invalid positions to `-1e9` before softmax
+
+### Mask Generation (line 166-168)
+```python
+def generate_square_subsequent_mask(sz):
+    return torch.triu(torch.ones(sz, sz), diagonal=1).bool()
+```
+- Creates causal mask for decoder self-attention
+
+### Padding Mask (line 170-171)
+```python
+def create_padding_mask(seq, pad_idx=0):
+    return (seq != pad_idx)
+```
+
+### Translation (line 196-215)
+- Greedy decoding: takes argmax at each step
+- Stops on EOS token or max length
+
+## Hyperparameters Used
+
+| Parameter | Default | Paper |
+|-----------|---------|-------|
+| d_model | 512 | 512 |
+| num_heads | 8 | 8 |
+| num_layers | 6 | 6 |
+| d_ff | 2048 | 2048 |
+| dropout | 0.1 | 0.1 |

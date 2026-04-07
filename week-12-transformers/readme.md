@@ -8,7 +8,6 @@
 
 6-11 Apr
 
-7 Apr: Annotated Transformer
 
 8 Apr: Vision Transformer
 
@@ -23,3 +22,12 @@ Tokenization
 [Attention is All You Need](Attention.md)
 
 [mini Transformer from scratch](./transformer-app.md)
+
+------
+
+
+# In your local ai repo:
+git add week-12-transformers/
+git commit -m "Update transformer"
+git push origin main                    # push to ai repo
+git push transformers main              # push to transformers repo
