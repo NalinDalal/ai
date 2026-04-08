@@ -28,27 +28,7 @@
 
 ## Phase 3: The Transformer Revolution
 
-### Week 12: Transformer Architecture + Stage D Papers
-
-**Stage D — The Core Shift: Transformer Family:**
-
-14. [**Vaswani et al. (2017)** — "Attention Is All You Need" (Transformer) **LANDMARK PAPER**](https://arxiv.org/abs/1706.03762)
-    - **Mini-project:** Implement a mini-Transformer from scratch (character-level), reproduce a simple translation or next-token model
-    - **Resource:** `The Annotated Transformer` [Blog](https://nlp.seas.harvard.edu/annotated-transformer/) ,[Code](https://github.com/harvardnlp/annotated-transformer/)
-      - [Vision Transformer](https://paperswithcode.com/method/vision-transformer)
-      - [**Switch Transformer** - "Switch Transformer: Scaling to Trillion Parameter Models"](https://arxiv.org/pdf/2101.03961)
-      - [**Char-RNN**](https://github.com/karpathy/char-rnn)
-    - [yt-lec](https://youtu.be/XXtpJxZBa2c?si=oc6fOm5VPPCYFauY)
-
-- **Why it matters:** Attention-only, no RNNs - changed everything
-
-**Time Investment:** 30-35 hours
-
-
-**Tokenization:**
-
-- [Byte-pair Encoding](https://arxiv.org/pdf/1508.07909) ← **Implement BPE from scratch**
-    Do this at last of week 12(saturday maybe)
+### Week 12: [Transformer Architecture + Stage D Papers](./week-12-transformers/readme.md)
 
 ### Week 13-14: Pre-trained Language Models + Stage E Papers
 
@@ -57,17 +37,21 @@
 15. [**Devlin et al. (2018)** — BERT (bidirectional pretraining) **LANDMARK PAPER**](https://arxiv.org/abs/1810.04805)
     - **Mini-project:** Finetune BERT on sentiment or QA
     - **Why it matters:** Changed how we pretrain language models
+    - **Foundation:** [Building LLMs from the Ground Up](https://www.youtube.com/watch?v=quh7z1q7-uc) - understand the transformer backbone shared by BERT
 
 16. [**Radford et al. (2018)** — Improving Language Understanding by Generative Pre-Training/GPT-1 (autoregressive pretraining)](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf)
     - **Mini-project:** Run a small autoregressive LM (GPT-style) on tiny dataset
+    - **Foundation:** [Building LLMs from the Ground Up](https://www.youtube.com/playlist?list=PLTKMiZHVd_2IIEsoJrWACkIxLRdfMlw11)
 
 17. **Radford et al. / OpenAI (2019)** — Language Models are Unsupervised Multitask Learners/GPT-2 (scaling + sampling)
     - **Mini-project:** Fine-tune GPT-2 small for a domain (e.g., commit messages)
+    - **Foundation:** [Building LLMs from the Ground Up](https://www.youtube.com/watch?v=quh7z1q7-uc)
 
 18. [**Brown et al. (2020)** — GPT-3 (few-shot behaviour at scale) **LANDMARK PAPER**](https://arxiv.org/abs/2005.14165)
     - **Mini-project:** Train a small [nanoGPT](https://github.com/karpathy/nanoGPT) and experiment with in-context examples
     - **Why it matters:** Few-shot emergent behavior at huge scale
     - **Resource:** [GPT-3](https://paperswithcode.com/method/gpt-3)
+    - **Foundation:** [Building LLMs from the Ground Up](https://www.youtube.com/watch?v=quh7z1q7-uc)
 
 **Time Investment:** 35-40 hours
 
@@ -82,6 +66,19 @@
 - [Finetuning Large Language Models](https://magazine.sebastianraschka.com/p/finetuning-large-language-models)
 - [How Transformer LLMs Work - Deeplearning.ai](https://www.deeplearning.ai/short-courses/how-transformer-llms-work/)
 - [Building GPT from scratch - Andrej Karpathy](https://www.youtube.com/watch?v=kCc8FmEb1nY) ← **WATCH THIS**
+- [Building LLMs from the Ground Up - Sebastian Raschka](https://www.youtube.com/watch?v=quh7z1q7-uc) ← **WATCH THIS** (foundational for GPT, BERT, and all transformer-based LLMs)
+- [Build an LLM from Scratch Series - Sebastian Raschka](https://www.youtube.com/playlist?list=PLTKMiZHVd_2IIEsoJrWACkIxLRdfMlw11) ← **WATCH THIS SERIES**
+  - [1: Set up your code environment](https://www.youtube.com/watch?v=yAcWnfsZhzo)
+  - [2: Working with text data](https://www.youtube.com/watch?v=341Rb8fJxY0)
+  - [3: Coding attention mechanisms](https://www.youtube.com/watch?v=-Ll8DtpNtvk)
+  - [4: Implementing a GPT model from Scratch](https://www.youtube.com/watch?v=YSAkgEarBGE)
+  - [6: Finetuning for Classification](https://www.youtube.com/watch?v=5PFXJYme4ik)
+- [Developing an LLM: Building, Training, Finetuning](https://www.youtube.com/watch?v=kPGTx4wcm_w)
+- [LLMs: A Journey Through Time and Architecture](https://www.youtube.com/watch?v=itIab9ZTAqk)
+- [Finetuning Open-Source LLMs](https://www.youtube.com/watch?v=gs-IDg-FoIQ)
+- [LLM Building Blocks & Transformer Alternatives](https://www.youtube.com/watch?v=lONyteDR4XE)
+- [Pretraining and Finetuning LLMs from the Ground Up | SciPy 2024](https://www.youtube.com/watch?v=40C6dqomM8U)
+- [Developing and Training LLMs From Scratch](https://www.youtube.com/watch?v=qL4JY6Y5pmA)
 - [LLM Course - GitHub](https://github.com/mlabonne/llm-course)
 - [LLM Course - Hugging Face](https://huggingface.co/learn/llm-course/chapter1/1)
 
@@ -112,6 +109,7 @@
 
 [GPipe: Easy Scaling with Micro-Batch Pipeline Parallelism](https://arxiv.org/abs/1811.06965)
 [LLM from scratch](https://github.com/rasbt/LLMs-from-scratch)
+- [Building LLMs from the Ground Up - Sebastian Raschka](https://www.youtube.com/watch?v=quh7z1q7-uc)
 
 **AI Engineering - Infrastructure (parallelize your training):**
 
