@@ -5,13 +5,13 @@
 **Tokenization:**
 - [Byte-pair Encoding](https://arxiv.org/pdf/1508.07909) ← **Implement BPE from scratch**
 
-6-11 Apr
+6-12 Apr
 
-9 Apr: Switch Transformer
+10 Apr: Switch Transformer
 
 Tokenization
-10 Apr: Read Byte-pair Encoding
-11 Apr: Implement BPE from scratch
+11 Apr: Read Byte-pair Encoding
+12 Apr: Implement BPE from scratch
 
 ------
 
@@ -20,6 +20,8 @@ Tokenization
 [mini Transformer from scratch](./transformer-app.md)
 
 [Vision Transformer](./vision-transfor.md)
+
+[Switch Transformer](./switch-trans.md)
 
 ------
 
