@@ -5,13 +5,12 @@
 **Tokenization:**
 - [Byte-pair Encoding](https://arxiv.org/pdf/1508.07909) ← **Implement BPE from scratch**
 
-6-12 Apr
+13 Apr: Switch Transformer
 
-10 Apr: Switch Transformer
+14 Apr: Annotated Transformer
 
 Tokenization
-11 Apr: Read Byte-pair Encoding
-12 Apr: Implement BPE from scratch
+15 Apr: Read Byte-pair Encoding; Implement BPE from scratch
 
 ------
 
