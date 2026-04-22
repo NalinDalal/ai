@@ -1,16 +1,15 @@
+
+
+22 Apr: Switch Transformer
+
+23 Apr: Annotated Transformer
 - **Mini-project:** Implement a mini-Transformer from scratch (character-level), reproduce a simple translation or next-token model
     - **Resource:** `The Annotated Transformer` [Blog](https://nlp.seas.harvard.edu/annotated-transformer/) ,[Code](https://github.com/harvardnlp/annotated-transformer/)
-      - [**Switch Transformer** - "Switch Transformer: Scaling to Trillion Parameter Models"](https://arxiv.org/pdf/2101.03961)
-
-**Tokenization:**
-- [Byte-pair Encoding](https://arxiv.org/pdf/1508.07909) ← **Implement BPE from scratch**
-
-19 Apr: Switch Transformer
-
-20 Apr: Annotated Transformer
 
 Tokenization
-21 Apr: Read Byte-pair Encoding; Implement BPE from scratch
+24 Apr: Read Byte-pair Encoding; Implement BPE from scratch
+**Tokenization:**
+- [Byte-pair Encoding](https://arxiv.org/pdf/1508.07909) ← **Implement BPE from scratch**
 
 ------
 
