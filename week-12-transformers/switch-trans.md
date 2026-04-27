@@ -35,3 +35,18 @@ footprint on each device.
 
 
 ##  Simplifying Sparse Routing
+We say that we take a input token representation $x$ and then feed it to best determined top-k expert from a set {Ei(x)} i=1 to N of N experts.
+h(x)=W\sub{r} * x normalised via softmax over N experts.
+
+gate value of ith expert:
+p\sub{i}(x)=\frac{e^{h(i)}}{\sum{j}{N}{e^{h(x)\sub{j}}}}
+
+The top-k gate values are selected for routing the token x. If T is the set of selected top-k
+indices then the output computation of the layer is the linearly weighted combination of
+each expert’s computation on the token by the gate value,
+y =
+\sigma
+i∈T
+pi(x)Ei(x).
+
+
