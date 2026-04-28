@@ -44,9 +44,36 @@ p\sub{i}(x)=\frac{e^{h(i)}}{\sum{j}{N}{e^{h(x)\sub{j}}}}
 The top-k gate values are selected for routing the token x. If T is the set of selected top-k
 indices then the output computation of the layer is the linearly weighted combination of
 each expert’s computation on the token by the gate value,
-y =
-\sigma
-i∈T
-pi(x)Ei(x).
+y = \sigma{i∈T}{pi(x)Ei(x)}.
+
+study the top-k decision and found that higher k-values in lower layers in the model were
+important for models with many routing layers.
+
+a simplified strategy where we route to only a single expert. We show this simplification
+preserves model quality, reduces routing computation and performs better. This k = 1
+routing strategy is later referred to as a Switch layer.
+
+benefits are 3 fold:
+(1) The router computation is reduced
+as we are only routing a token to a single expert. 
+(2) The batch size (expert capacity) of each expert can be at least halved since each token is only being routed to a single expert.
+(3) The routing implementation is simplified and communication costs are reduced.
+
+batch size of expert: (total tokens / num experts) × capacity factor.
+
+## Efficient Sparse Routing
+use [MTF](https://github.com/tensorflow/mesh) to efficient distributed data and model parallel architectures.
+
+**Distributed Switch Implementation**
+tensor are static but the computation is dynamic. so question arises: how to set expert capacity.
+expert capacity—the number of tokens each expert computes
+set by evenly dividing the number of tokens in the batch across the number of experts, and
+then further expanding by a *capacity factor*
+
+$expert capacity= \frac{tokens per batch}{number of experts} * capacity factor$.
 
 
+
+----
+
+7-35
