@@ -20,23 +20,24 @@ Types:
 ---
 
 1. Supervised
-   training data already has desired solution called **labels**
+   training data already has desired solution called **labels**.
+
    A typical supervised learning task is **classification**.
+   
    ex: spam filter, predictors/regression(price of car with features)
+   
    Logistic Regression also is such example
 
 some important supervised learning algorithms
-• k-Nearest Neighbors
-• Linear Regression
-• Logistic Regression
-• Support Vector Machines (SVMs)
-• Decision Trees and Random Forests
-• Neural networks2
+- k-Nearest Neighbors
+- Linear Regression
+- Logistic Regression
+- Support Vector Machines (SVMs)
+- Decision Trees and Random Forests
+- Neural networks2
 
 2. UnSupervised
-   training data is not labelled. The system tries to learn without a teacher.
-   some UnSupervised learning algorithms
-
+   training data is not labelled. The system tries to learn without a teacher. Some UnSupervised learning algorithms:
 - Clustering
   - k-Means
   - Hierarchical Cluster Analysis (HCA)
@@ -54,7 +55,8 @@ some important supervised learning algorithms
     algorithm deals with partially labelled data
 
 4.  Reinforcement
-    The learning system, called an agent in this context, can observe the environment, select and perform actions, and get rewards/penalties in return .
+    The learning system, called an agent in this context, can observe the environment, select and perform actions, and get rewards/penalties in return.
+    
     A policy defines what action the agent should choose when it is in a given situation.
 
         1. Instance Based Learning: the system learns the examples by heart, then generalizes to new cases using a similarity measure
@@ -64,15 +66,17 @@ some important supervised learning algorithms
 ---
 
 so we made a [python program](./linear-reg.py) to find and plot the data graph
-you can see a trend there; looks like life satisfaction goes up more or less linearly as the country’s GDP per capita increases.
-hence we will keep the model life selction as linear function of GDP per capita
-this is called model selection
 
-sample linear model:
-`life_selection={theta_0}+$theta_1 * GDP_Per_Capita`
+you can see a trend there; looks like life satisfaction goes up more or less linearly as the country’s GDP per capita increases.
+
+hence model selction{life} -> linear function of GDP per capita(model selection)
+
+Model Selection: the process of choosing the best algorithm and model architecture from a set of candidates to ensure the model generalizes well to unseen data rather than just fitting the training data.
+
+sample linear model: `life_selection={theta_0}+$theta_1 * GDP_Per_Capita`
 
 we use a cost function that measures the distance between the linear model’s predictions and the training examples;
-the objective is to minimize this distance.
+the objective is to minimize this distance. As the distance minimizes the calculated values tend to move towards actual data, sort of overlapping the original data graph.
 
 [training & running linear model via SciKit](./linear-model-scikit.py)
 
@@ -106,10 +110,8 @@ $$
 
 ## WorkSpace
 
-well you gotta start
-
-create your workspace, and install pip locally
-create isolated environment there via adding a virtual environment
+Create your workspace directory, and install pip locally.
+Create an isolated environment there via adding a virtual environment
 
 ```sh
 python3 -m venv myenv   #myenv is name of environment
@@ -121,20 +123,20 @@ u can now install dependencies easily
 example code:
 [to fetch data, plot and show the data](./housing-linear-reg.py)
 
-well you can train and test the dataset too
+Now we can train and test the dataset.
 
 ### Create a Test Set
 
-well you don't need to write new like test cases
-just pick random, like 20% of given dataset, set them aside
+It's not like writing the new test cases for the machine learning algorithm you just built via a regression. It's actually testing the obtained algorithm on the given dataset. Note: it will relatively small part of dataset compared to training.
+ex: 20% of dataset
 
 ```python
-def split_train_test(data, test_ratio):
-    shuffled_indices = np.random.permutation(len(data))
-    test_set_size = int(len(data) * test_ratio)
-    test_indices = shuffled_indices[:test_set_size]
-    train_indices = shuffled_indices[test_set_size:]
-return data.iloc[train_indices], data.iloc[test_indices]
+def split_train_test(data, test_ratio):     #dataset and it's percentage in decimal{0.2 for 20%}
+    shuffled_indices = np.random.permutation(len(data)) #shuffle the data randomly
+    test_set_size = int(len(data) * test_ratio) #set the test-set with size of int value of length of test data via len(data)*test_ratio
+    test_indices = shuffled_indices[:test_set_size] #splice the test data from 0 till test_set_size-1
+    train_indices = shuffled_indices[test_set_size:]    #splice the train data from test_set_size to final index
+    return data.iloc[train_indices], data.iloc[test_indices]    #return both sets
 ```
 
 use them like:
@@ -176,12 +178,9 @@ plt.legend()
 
 ### Looking for Correlations
 
-you can easily compute the standard correlation coefficient (also called Pearson’s r) between every pair of attributes using the `corr()` method:
-`corr_matrix = housing.corr()`
+you can easily compute the standard correlation coefficient (also called Pearson’s r) between every pair of attributes using the `corr()` method: `corr_matrix = housing.corr()`; ranges b/w -1 to 1
 
-ranges b/w -1 to 1
-
-other way to check for co-relation b/w attributes: `scatter_matrix`(plots every numerical attribute against every other numerical attribute)
+`scatter_matrix`(plots every numerical attribute against every other numerical attribute) is other way to check for co-relation b/w attributes.
 
 ```python
 from pandas.tools.plotting import scatter_matrix
@@ -195,17 +194,16 @@ correlation scatter plot:
 housing.plot(kind="scatter", x="median_income", y="median_house_value",alpha=0.1)
 ```
 
-## Prepare the Data for Machine Learning Algorithms
+## Preparing the Data for Machine Learning Algorithms
 
-we should prep our data, use functions instead of manual cause we can:
+we should prep our data, use functions instead of manual because we can:
 
 - reproduce transformations easily on any dataset
 - build a library of transformation functions that you can reuse in future projects.
 - reuse function in live system b/f feeding to algo
 
-first let’s revert to a clean training set (by copying strat_train_set once again),
-and let’s separate the predictors and the labels since we don’t necessarily want to apply
-the same transformations to the predictors and the target values
+first revert to a clean training set (by copying `strat_train_set`),
+separate the predictors and the labels cause don’t want to apply the same transformations to the predictors and the target values
 
 ```python
 housing = strat_train_set.drop("median_house_value", axis=1)
@@ -229,14 +227,14 @@ housing["total_bedrooms"].fillna(median) # option 3
 
 if using option3 then make sure to save the median value and use it
 
-scikit has a handy class to take care of missing values: `Imputer`.
+Note: **SciKit has a handy class to take care of missing values: `Imputer`**.
 
 ```python
 from sklearn.preprocessing import Imputer
 imputer = Imputer(strategy="median")
 ```
 
-Since the median can only be computed on numerical attributes, we need to create a copy of the data without the text attribute ocean_proximity:
+Since the median can only be computed on numerical attributes, we need to create a copy of the data without the text attribute `ocean_proximity`:
 
 ```python
 housing_num = housing.drop("ocean_proximity", axis=1)
@@ -249,7 +247,7 @@ imputer.fit(housing_num)
 X = imputer.transform(housing_num)
 ```
 
-we can;t be sure where data is missing, so apply to whole dataset
+we can't be sure where data is missing, so apply to whole dataset
 hence now your training set is complete
 result is a plain Numpy array containing the transformed features. If you want to
 put it back into a Pandas DataFrame, it’s simple:
@@ -305,7 +303,7 @@ array([[0, 1, 0, 0, 0],
 
 ### Custom Transformers
 
-Used when built-in transformers aren’t enough (e.g., custom cleanup or new feature creation).
+They are used when built-in transformers aren’t enough (e.g., custom cleanup or new feature creation).
 
 **Requirements:**
 
@@ -350,8 +348,7 @@ Machine Learning algorithms perform poorly when feature scales differ.
 #### 1. **Min-Max Scaling (Normalization)**
 
 - Scales values between 0–1.
-- Formula:
-  ( X' = (X - X*{min}) / (X*{max} - X\_{min}) )
+- Formula: $X' = \frac{X - X_{\min}}{X_{\max} - X_{\min}}$
 - Use: `MinMaxScaler(feature_range=(0,1))`
 - Sensitive to outliers.
 
@@ -421,7 +418,7 @@ class DataFrameSelector(BaseEstimator, TransformerMixin):
 
 ```python
 lin_reg = LinearRegression()
-lin_reg.fit(housing_prepared, housing_labels)
+lin_reg.fit(housing_prepared, housing_labels)   #call the function with x-axis for housing_prepared and y-axis for labels
 ```
 
 Evaluate with RMSE:
@@ -433,7 +430,6 @@ rmse = np.sqrt(mean_squared_error(housing_labels, predictions))
 
 → Underfitting if RMSE is high.
 
----
 
 ### **2. Decision Tree Regressor**
 
@@ -444,7 +440,6 @@ tree_reg.fit(housing_prepared, housing_labels)
 
 If RMSE = 0 → Overfitting.
 
----
 
 ### **3. Cross-Validation**
 
@@ -458,7 +453,6 @@ rmse_scores = np.sqrt(-scores)
 
 Displays performance + variability.
 
----
 
 ### **4. Random Forest Regressor**
 
@@ -491,11 +485,20 @@ Brute-force hyperparameter search using cross-validation.
 
 ```python
 param_grid = [
-  {'n_estimators': [3, 10, 30], 'max_features': [2, 4, 6, 8]},
-  {'bootstrap': [False], 'n_estimators': [3, 10], 'max_features': [2,3,4]},
+  {
+      'n_estimators': [3, 10, 30], 
+      'max_features': [2, 4, 6, 8]
+    },
+  {
+      'bootstrap': [False], 
+      'n_estimators': [3, 10], 
+      'max_features': [2,3,4]
+    },
 ]
-grid_search = GridSearchCV(RandomForestRegressor(), param_grid, cv=5,
-                           scoring='neg_mean_squared_error')
+grid_search = GridSearchCV(RandomForestRegressor(), 
+param_grid, 
+cv=5,
+scoring='neg_mean_squared_error')
 grid_search.fit(housing_prepared, housing_labels)
 ```
 
@@ -515,13 +518,6 @@ RandomizedSearchCV(..., n_iter=1000)
 
 - Tries random combinations.
 - Better control over compute budget.
-
----
-
-## Ensemble Methods
-
-Combine best models → usually better performance (e.g., Random Forest).
-We’ll explore deeper in ensemble learning chapter.
 
 ---
 
