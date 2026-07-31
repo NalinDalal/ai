@@ -1,4 +1,7 @@
-You are given a problem, now to solve it we can define a set of instruction or algorithms 
+# Machine Learning
+
+Consider that you are given a problem, now to solve it we can define a set of instruction or algorithms.
+for example: `a+b`
 
 but how about a problem where you can't solve it with help of algorithms or an algorithm can't be simply defined for it??
 
@@ -20,24 +23,15 @@ Types:
 ---
 
 1. Supervised
-   training data already has desired solution called **labels**.
-
-   A typical supervised learning task is **classification**.
-   
-   ex: spam filter, predictors/regression(price of car with features)
-   
-   Logistic Regression also is such example
-
-some important supervised learning algorithms
-- k-Nearest Neighbors
-- Linear Regression
-- Logistic Regression
-- Support Vector Machines (SVMs)
-- Decision Trees and Random Forests
-- Neural networks2
+   - training data already has desired solution called **labels**.
+   - A typical supervised learning task is **classification**.
+   - ex: spam filter, predictors/regression(price of car with features)
+   - example: k-Nearest Neighbors, Linear Regression, Logistic Regression, Support Vector Machines (SVMs), Decision Trees and Random Forests, Neural networks
 
 2. UnSupervised
-   training data is not labelled. The system tries to learn without a teacher. Some UnSupervised learning algorithms:
+   training data is not labelled. The system tries to learn without a teacher. 
+
+Some UnSupervised learning algorithms:
 - Clustering
   - k-Means
   - Hierarchical Cluster Analysis (HCA)
@@ -51,11 +45,9 @@ some important supervised learning algorithms
   - Apriori
   - Eclat
 
-3.  SemiSupervised
-    algorithm deals with partially labelled data
+3.  SemiSupervised: Algorithm dealing with partially labelled data
 
-4.  Reinforcement
-    The learning system, called an agent in this context, can observe the environment, select and perform actions, and get rewards/penalties in return.
+4.  Reinforcement: The learning system(agent) observes the environment, select and perform actions, and get rewards/penalties in return.
     
     A policy defines what action the agent should choose when it is in a given situation.
 
@@ -80,10 +72,10 @@ the objective is to minimize this distance. As the distance minimizes the calcul
 
 [training & running linear model via SciKit](./linear-model-scikit.py)
 
-• You studied the data.
-• You selected a model.
-• You trained it on the training data (i.e., the learning algorithm searched for the model parameter values that minimize a cost function).
-• Finally, you applied the model to make predictions on new cases (this is called inference), hoping that this model will generalize well
+- You studied the data.
+- You selected a model.
+- You trained it on the training data (i.e., the learning algorithm searched for the model parameter values that minimize a cost function).
+- Finally, you applied the model to make predictions on new cases (this is called inference), hoping that this model will generalize well
 
 ## Main Challenges
 
@@ -107,6 +99,8 @@ $$
 $$
 \mathrm{MAE}(\mathbf{X}, h) = \frac{1}{m} \sum\_{i=1}^{m} \left| h(\mathbf{x}^{(i)}) - y^{(i)} \right|
 $$
+
+----
 
 ## WorkSpace
 
