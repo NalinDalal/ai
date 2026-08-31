@@ -2,18 +2,29 @@
 
 My AI engineering learning index.
 
-This repository does **not** contain implementations. It is a curated map of the work, the current focus, and the rules of how this project is organized.
+This repository does **not** contain implementations. It is the public map of what I'm learning, what I've built, and where the actual work lives.
 
 ---
 
-## Rules
+## Currently
 
-- **`ai` is index only.** No implementations live here. No notebooks, no scripts, no experiments.
-- **Each body of work lives in its own repository.** Repos are linked from this README.
-- **No git subtrees, no submodules, no shared history.** Repos are independent. If one moves or is rewritten, you update a link here.
-- **Private scratch is allowed.** Messy experiments, broken code, and half-formed ideas stay local until something is worth publishing.
-- **Curriculum is guidance, not a checklist.** We progress by building and breaking real systems, not by completing week numbers.
-- **Publishing is the exhaust from the work.** We learn, implement, experiment, break, measure, understand — then publish. Not the other way around.
+**Learning:** Python fundamentals, NumPy, linear algebra, probability, statistics
+
+**Building:** [machine-learning](https://github.com/NalinDalal/machine-learning) — implementing classical ML algorithms from scratch
+
+**Reading:** See [ai.md](./ai.md) for the full curriculum roadmap
+
+**Current question:** How does optimization actually behave when we change batch size and learning rate?
+
+---
+
+## Approach
+
+I'm approaching this as an engineering apprenticeship:
+
+> **learn → investigate → build → measure → break → understand → publish**
+
+This repo is the index. The actual implementations, experiments, and notes live in standalone repositories linked below. The goal is a visible body of work that shows how I think, debug, and reason about real engineering problems — not a portfolio of completed tutorials.
 
 ---
 
@@ -49,18 +60,6 @@ This repository does **not** contain implementations. It is a curated map of the
 |-------|-----------|-------------|
 | Paper Reproductions | See individual repos above | Experiments and reproductions are kept alongside implementations |
 | Research Notes | See [ai.md](./ai.md) | Complete curriculum roadmap, paper list, and resource index |
-
----
-
-## Current Focus
-
-**Learning:** Python fundamentals, NumPy, linear algebra, probability, statistics
-
-**Building:** [machine-learning](https://github.com/NalinDalal/machine-learning) — implementing classical ML algorithms from scratch
-
-**Reading:** See [ai.md](./ai.md) for the full curriculum roadmap
-
-**Current question:** How does optimization actually behave when we change batch size and learning rate?
 
 ---
 
