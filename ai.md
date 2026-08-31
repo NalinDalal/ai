@@ -1,14 +1,10 @@
 # AI Curriculum
 
-## Timeline
-
-8 months. September to April.
+## Timeline : 8 months. September to April.
 
 **Rule:** curriculum is guidance, not a checklist. We progress by building and breaking real systems, not by completing week numbers.
 
 ---
-
-## Sequential Path
 
 ### Phase 0: Foundations (Weeks 1–2)
 
@@ -222,6 +218,9 @@ ReAct, tool use, planner-executor, multi-agent frameworks, MCP.
 - [AI Agents for Beginners - GitHub](https://github.com/microsoft/ai-agents-for-beginners)
 - [GenAI Agents - GitHub](https://github.com/NirDiamant/GenAI_Agents)
 
+- [MCP - Official Documentation](https://modelcontextprotocol.io/introduction)
+- [Awesome MCP Servers - GitHub](https://github.com/punkpeye/awesome-mcp-servers)
+
 **Time Investment:** 40–45 hours
 
 ---
@@ -239,50 +238,6 @@ Mixture of Experts, SSMs/Mamba, FlashAttention, speculative decoding, production
 - DeepSeek (2025) — DeepSeek R1
 
 **Time Investment:** 30–35 hours
-
----
-
-## Further Reading
-
-Papers that don't fit neatly into a specific phase, but are worth exploring for deeper understanding:
-
-- **The First Law of Complexodynamics** by Scott Aaronson ([Blog](https://scottaaronson.blog/?p=762))
-- **Keeping Neural Networks Simple by Minimizing the Description Length of the Weights** ([PDF](https://www.cs.toronto.edu/~hinton/absps/colt93.pdf))
-- **GPipe: Easy Scaling with Micro-Batch Pipeline Parallelism** ([ArXiv](https://arxiv.org/abs/1811.06965))
-- **Multi-Scale Context Aggregation by Dilated Convolutions**
-- **Neural Message Passing for Quantum Chemistry**
-- **Identity Mappings in Deep Residual Networks**
-- **A Simple Neural Network Module for Relational Reasoning**
-- **Variational Lossy Autoencoder**
-- **Relational Recurrent Neural Networks**
-- **Quantifying the Rise and Fall of Complexity in Closed Systems: The Coffee Automaton**
-- **Neural Turing Machines**
-- **Deep Speech 2: End-to-End Speech Recognition in English and Mandarin**
-- **A Tutorial Introduction to the Minimum Description Length Principle**
-- **Machine Super Intelligence** by Shane Legg
-- **Kolmogorov Complexity and Algorithmic Randomness**
-- **CS231n: Convolutional Neural Networks for Visual Recognition**
-
----
-
-## Resources
-
-### YouTube
-
-- [Andrej Karpathy](https://www.youtube.com/@AndrejKarpathy) ← **MUST WATCH**
-
-### Tools & Frameworks
-
-**Frameworks:**
-
-- [LangChain](https://www.langchain.com/)
-- [LlamaIndex](https://www.llamaindex.ai/)
-- [Ollama](https://ollama.com/)
-
-### Other Resources
-
-- [MCP - Official Documentation](https://modelcontextprotocol.io/introduction)
-- [Awesome MCP Servers - GitHub](https://github.com/punkpeye/awesome-mcp-servers)
 
 ---
 
