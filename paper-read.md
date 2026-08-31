@@ -1,5 +1,107 @@
+# Paper Reading Tracker
 
-## How to Read Each Paper (Strict 6-Step Recipe)
+Papers to read, organized by topic. Each entry tracks status, links, and notes.
+
+---
+
+## Status
+
+- 🔲 Not started
+- 🔄 In progress
+- ✅ Read
+- ⏭️ Skipped
+
+---
+
+## Transformers & Attention
+
+| # | Paper | Authors | Year | Status | Notes |
+|---|-------|---------|------|--------|-------|
+| 1 | [Attention Is All You Need](https://arxiv.org/abs/1706.03762) | Vaswani et al. | 2017 | 🔲 | Core transformer paper |
+| 2 | [BERT: Pre-training of Deep Bidirectional Transformers](https://arxiv.org/abs/1810.04805) | Devlin et al. | 2018 | 🔲 | Bidirectional pretraining |
+| 3 | [GPT-3: Language Models are Few-Shot Learners](https://arxiv.org/abs/2005.14165) | Brown et al. | 2020 | 🔲 | Few-shot emergent behavior |
+| 4 | [Vision Transformer (ViT)](https://arxiv.org/abs/2010.11929) | Dosovitskiy et al. | 2021 | 🔲 | Image as patches |
+| 5 | [Switch Transformer: Scaling to Trillion Parameters](https://arxiv.org/abs/2101.03961) | Fedus et al. | 2022 | 🔲 | Mixture of Experts |
+| 6 | [Titans: Learning to Memorize at Test Time](https://arxiv.org/abs/2501.00663) | Google | 2025 | 🔲 | Alternative to Transformers |
+
+---
+
+## RNNs & LSTMs
+
+| # | Paper | Authors | Year | Status | Notes |
+|---|-------|---------|------|--------|-------|
+| 7 | [Long Short-Term Memory](https://www.bioinf.jku.at/publications/older/2604.pdf) | Hochreiter & Schmidhuber | 1997 | 🔲 | LSTM architecture |
+| 8 | [Sequence to Sequence Learning with Neural Networks](https://arxiv.org/abs/1409.3215) | Sutskever et al. | 2014 | 🔲 | Seq2Seq foundation |
+| 9 | [Neural Machine Translation by Jointly Learning to Align and Translate](https://arxiv.org/abs/1409.0473) | Bahdanau et al. | 2015 | 🔲 | Attention mechanism |
+| 10 | [The Unreasonable Effectiveness of RNNs](https://karpathy.github.io/2015/05/21/rnn-effectiveness/) | Karpathy | 2015 | 🔲 | Character-level language models |
+
+---
+
+## CNNs
+
+| # | Paper | Authors | Year | Status | Notes |
+|---|-------|---------|------|--------|-------|
+| 11 | [ImageNet Classification with Deep Convolutional Networks (AlexNet)](https://papers.nips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html) | Krizhevsky et al. | 2012 | 🔲 | Deep learning breakthrough |
+| 12 | [Very Deep Convolutional Networks for Large-Scale Image Recognition (VGG)](https://arxiv.org/abs/1409.1556) | Simonyan & Zisserman | 2015 | 🔲 | Network depth |
+| 13 | [Deep Residual Learning for Image Recognition (ResNet)](https://arxiv.org/abs/1512.03385) | He et al. | 2016 | 🔲 | Residual connections |
+| 14 | [You Only Look Once: Unified Real-Time Object Detection (YOLO)](https://arxiv.org/abs/1506.02640) | Redmon et al. | 2016 | 🔲 | Real-time detection |
+
+---
+
+## Optimization & Training
+
+| # | Paper | Authors | Year | Status | Notes |
+|---|-------|---------|------|--------|-------|
+| 15 | [Adam: A Method for Stochastic Optimization](https://arxiv.org/abs/1412.6980) | Kingma & Ba | 2015 | 🔲 | Adaptive learning rates |
+| 16 | [Batch Normalization: Accelerating Deep Network Training](https://arxiv.org/abs/1502.03167) | Ioffe & Szegedy | 2015 | 🔲 | Internal covariate shift |
+| 17 | [Delving Deep into Rectifiers: Surpassing Human-Level Performance](https://arxiv.org/abs/1502.01852) | He et al. | 2015 | 🔲 | He initialization, ReLU variants |
+| 18 | [Dropout: A Simple Way to Prevent Neural Networks from Overfitting](https://arxiv.org/abs/1207.0580) | Srivastava et al. | 2014 | 🔲 | Regularization technique |
+
+---
+
+## Generative Models
+
+| # | Paper | Authors | Year | Status | Notes |
+|---|-------|---------|------|--------|-------|
+| 19 | [Auto-Encoding Variational Bayes (VAE)](https://arxiv.org/abs/1312.6114) | Kingma & Welling | 2013 | 🔲 | Variational inference |
+| 20 | [Generative Adversarial Networks (GANs)](https://arxiv.org/abs/1406.2661) | Goodfellow et al. | 2014 | 🔲 | Adversarial training |
+| 21 | [Denoising Diffusion Probabilistic Models (DDPM)](https://arxiv.org/abs/2006.11239) | Ho et al. | 2020 | 🔲 | Diffusion models |
+| 22 | [High-Resolution Image Synthesis with Latent Diffusion Models (LDM)](https://arxiv.org/abs/2112.10752) | Rombach et al. | 2022 | 🔲 | Stable Diffusion foundation |
+
+---
+
+## RL & Alignment
+
+| # | Paper | Authors | Year | Status | Notes |
+|---|-------|---------|------|--------|-------|
+| 23 | [Deep Reinforcement Learning from Human Preferences](https://arxiv.org/abs/1706.03741) | Christiano et al. | 2017 | 🔲 | RLHF foundation |
+| 24 | [Training Language Models to Follow Instructions with Human Feedback (InstructGPT)](https://arxiv.org/abs/2203.02155) | Ouyang et al. | 2022 | 🔲 | Practical alignment |
+| 25 | [Constitutional AI: Harmlessness from AI Feedback](https://arxiv.org/abs/2212.08073) | Anthropic | 2023 | 🔲 | Alternative to RLHF |
+| 26 | [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629) | Yao et al. | 2022 | 🔲 | Agent reasoning pattern |
+
+---
+
+## Advanced Topics
+
+| # | Paper | Authors | Year | Status | Notes |
+|---|-------|---------|------|--------|-------|
+| 27 | [Mamba: Linear-Time Sequence Modeling with Selective State Spaces](https://arxiv.org/abs/2312.00752) | Gu & Dao | 2023 | 🔲 | SSM alternative to Transformers |
+| 28 | [FlashAttention-2: Faster Attention with Better Parallelism](https://arxiv.org/abs/2307.08691) | Dao et al. | 2022 | 🔲 | Attention optimization |
+| 29 | [LoLCATs: On Low-Rank Linearizing of Large Language Models](https://arxiv.org/abs/2410.10254) | Hu et al. | 2024 | 🔲 | Model compression |
+| 30 | [DeepSeek R1](https://arxiv.org/abs/2501.12948) | DeepSeek | 2025 | 🔲 | Reasoning model |
+
+---
+
+## How to Use This Tracker
+
+1. **Pick a paper** from the table above based on your current phase
+2. **Follow the 6-step recipe** below
+3. **Update the status** when you finish: 🔲 → 🔄 → ✅
+4. **Add notes** about what you learned or found confusing
+
+---
+
+## 6-Step Reading Recipe
 
 **Do this for EVERY paper before moving on:**
 
@@ -11,5 +113,3 @@
 6. **Summarize (20-30m):** 300-500 words: 1) problem, 2) method, 3) main result, 4) limitations, 5) a one-line idea for extending it.
 
 **Mini-rule:** If you can't implement a minimal version in 2 days, you didn't read it properly.
-
-
