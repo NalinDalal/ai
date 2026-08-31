@@ -25,8 +25,11 @@ Linear regression, logistic regression, trees, SVMs, clustering, PCA, autoencode
 → [machine-learning](https://github.com/NalinDalal/machine-learning)
 
 **Resources:**
+
 - [Hands-On Machine Learning](https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/)
 - [Why Machines Learn](https://www.amazon.com/Why-Machines-Learn-Elegant-Behind/dp/0593185749/)
+- [Deep Learning Specialization - Andrew Ng (Coursera)](https://www.coursera.org/specializations/deep-learning)
+- [Fast.ai - Practical Deep Learning](https://www.fast.ai/)
 
 ---
 
@@ -36,11 +39,13 @@ Linear regression, logistic regression, trees, SVMs, clustering, PCA, autoencode
 → [neural-networks](https://github.com/NalinDalal/neural-networks)
 
 **Key papers:**
+
 - McCulloch & Pitts (1943) — A Logical Calculus of the Ideas Immanent in Nervous Activity
 - Rosenblatt (1958) — The Perceptron
 - Rumelhart, Hinton & Williams (1986) — Learning representations by back-propagating errors
 
 **Resources:**
+
 - [Deep Learning Specialization - Andrew Ng (Coursera)](https://www.coursera.org/specializations/deep-learning)
 - [Fast.ai - Practical Deep Learning](https://www.fast.ai/)
 - [Deep Learning - Ian Goodfellow](https://www.deeplearningbook.org/)
@@ -52,6 +57,7 @@ Linear regression, logistic regression, trees, SVMs, clustering, PCA, autoencode
 → [cnn-architectures](https://github.com/NalinDalal/cnn-architectures)
 
 **Key papers:**
+
 - Krizhevsky et al. (2012) — AlexNet
 - Simonyan & Zisserman (2015) — VGG
 - He et al. (2016) — ResNet
@@ -63,6 +69,7 @@ Linear regression, logistic regression, trees, SVMs, clustering, PCA, autoencode
 → [week-9-deep-learning](https://github.com/NalinDalal/week-9-deep-learning)
 
 **Key papers:**
+
 - Kingma & Ba (2015) — Adam
 - Ioffe & Szegedy (2015) — BatchNorm
 - He et al. (2015) — Delving Deep into Rectifiers
@@ -74,6 +81,7 @@ Linear regression, logistic regression, trees, SVMs, clustering, PCA, autoencode
 → [rnn](https://github.com/NalinDalal/rnn)
 
 **Key papers:**
+
 - Hochreiter & Schmidhuber (1997) — LSTM
 
 ---
@@ -82,6 +90,7 @@ Linear regression, logistic regression, trees, SVMs, clustering, PCA, autoencode
 → [rnn-karpathy](https://github.com/NalinDalal/rnn-karpathy)
 
 **Key papers:**
+
 - Karpathy (2015) — The Unreasonable Effectiveness of Recurrent Neural Networks
 
 ---
@@ -98,6 +107,7 @@ Seq2Seq, NMT, attention, English→French translator.
 → [Sequence-Models](https://github.com/NalinDalal/Sequence-Models)
 
 **Key papers:**
+
 - Sutskever et al. (2014) — Seq2Seq
 - Bahdanau et al. (2015) — NMT with attention
 
@@ -110,6 +120,7 @@ Transformer architecture, multi-head attention, ViT, BPE tokenization, Switch Tr
 → [transformers](https://github.com/NalinDalal/transformers)
 
 **Key papers:**
+
 - Vaswani et al. (2017) — Attention Is All You Need ← **START HERE**
 - Devlin et al. (2018) — BERT
 - Brown et al. (2020) — GPT-3
@@ -119,6 +130,7 @@ Transformer architecture, multi-head attention, ViT, BPE tokenization, Switch Tr
 - Google (2025) — Titans outperform Transformers
 
 **Resources:**
+
 - [Building GPT from scratch - Andrej Karpathy](https://www.youtube.com/watch?v=kCc8FmEb1nY) ← **WATCH THIS**
 - [Building LLMs from the Ground Up - Sebastian Raschka](https://www.youtube.com/watch?v=quh7z1q7-uc)
 - [Build a LLM from Scratch (book)](https://www.manning.com/books/build-a-large-language-model-from-scratch)
@@ -182,17 +194,33 @@ RLHF, instruction tuning, constitutional AI.
 ReAct, tool use, planner-executor, multi-agent frameworks, MCP.
 
 **Key topics:**
+
 - OpenAI Swarm, LangGraph, CrewAI, Phidata
 - Autonomous coding agents
 - API deployment with FastAPI
 
+**Frameworks & Tools:**
+
+- [LangChain](https://www.langchain.com/)
+- [LangGraph](https://langchain-ai.github.io/langgraph/)
+- [LlamaIndex](https://www.llamaindex.ai/)
+- [Ollama](https://ollama.com/)
+- [OpenAI Swarm](https://github.com/openai/swarm)
+- [CrewAI](https://www.crewai.io/)
+- [Phidata](https://www.phidata.com/)
+
 **Resources:**
+
 - [AI Agents in Action, Second Edition (book)](https://www.manning.com/books/ai-agents-in-action-second-edition)
 - [Build an AI Agent (From Scratch)](https://www.manning.com/books/build-an-ai-agent-from-scratch)
 - [Building AI Agents with LLMs, RAG, and Knowledge Graphs](https://www.manning.com/books/build-a-multi-agent-system-from-scratch)
 - [Hugging Face Agents Course](https://huggingface.co/learn/agents-course/)
 - [MCP Course - Hugging Face](https://huggingface.co/learn/mcp-course/unit0/introduction)
 - [AI Engineer Summit 2025](https://www.youtube.com/watch?v=D7BzTxVVMuw)
+- [A Visual Guide to LLM Agents](https://newsletter.maartengrootendorst.com/p/a-visual-guide-to-llm-agents)
+- [Agents - Chip Huyen](https://huyenchip.com/2025/01/07/agents.html)
+- [AI Agents for Beginners - GitHub](https://github.com/microsoft/ai-agents-for-beginners)
+- [GenAI Agents - GitHub](https://github.com/NirDiamant/GenAI_Agents)
 
 **Time Investment:** 40–45 hours
 
@@ -203,18 +231,12 @@ ReAct, tool use, planner-executor, multi-agent frameworks, MCP.
 Mixture of Experts, SSMs/Mamba, FlashAttention, speculative decoding, production deployment.
 
 **Key papers:**
+
 - Fedus et al. (2022) — Switch Transformer
 - Gu & Dao (2023) — Mamba
 - Dao et al. (2022) — FlashAttention-2
 - Hu et al. (2024) — LoLCATs
 - DeepSeek (2025) — DeepSeek R1
-
-**Resources:**
-- [Designing Machine Learning Systems](https://www.oreilly.com/library/view/designing-machine-learning/9781098107956/)
-- [AI Engineering](https://www.oreilly.com/library/view/ai-engineering/9781098166298/)
-- [LLMs in Production](https://www.manning.com/books/llms-in-production)
-- [Full Stack Deep Learning](https://fullstackdeeplearning.com/course/2022/)
-- [ML System Design - Stanford](https://stanford-cs329s.github.io/syllabus.html)
 
 **Time Investment:** 30–35 hours
 
@@ -248,44 +270,17 @@ Papers that don't fit neatly into a specific phase, but are worth exploring for 
 ### YouTube
 
 - [Andrej Karpathy](https://www.youtube.com/@AndrejKarpathy) ← **MUST WATCH**
-- [3Blue1Brown](https://www.youtube.com/@3blue1brown)
 
 ### Tools & Frameworks
 
-**LLM APIs:**
-- [OpenAI](https://platform.openai.com/docs/overview)
-- [Anthropic](https://docs.anthropic.com/en/docs/overview)
-- [Gemini - Google](https://ai.google.dev/gemini-api/docs)
-- [Groq - Inference](https://groq.com/)
-
 **Frameworks:**
+
 - [LangChain](https://www.langchain.com/)
 - [LlamaIndex](https://www.llamaindex.ai/)
 - [Ollama](https://ollama.com/)
 
-**MLOps:**
-- [MLflow](https://mlflow.org/docs/latest/index.html)
-- [Streamlit](https://streamlit.io/)
-- [LangSmith](https://docs.smith.langchain.com/)
-- [OpenTelemetry](https://opentelemetry.io/)
-
-**Vector Databases:**
-- [FAISS](https://arxiv.org/pdf/2401.08281)
-- [Milvus](https://www.cs.purdue.edu/homes/csjgwang/pubs/SIGMOD21_Milvus.pdf)
-- [ChromaDB](https://www.trychroma.com/)
-- [Pinecone](https://www.pinecone.io/)
-
-**Agent Frameworks:**
-- [OpenAI Swarm](https://github.com/openai/swarm)
-- [LangGraph](https://langchain-ai.github.io/langgraph/)
-- [CrewAI](https://www.crewai.io/)
-- [Phidata](https://www.phidata.com/)
-
 ### Other Resources
 
-- [Papers with Code](https://paperswithcode.com/)
-- [Kaggle Competitions](https://www.kaggle.com/competitions)
-- [Awesome LLM Apps - GitHub](https://github.com/Shubhamsaboo/awesome-llm-apps)
 - [MCP - Official Documentation](https://modelcontextprotocol.io/introduction)
 - [Awesome MCP Servers - GitHub](https://github.com/punkpeye/awesome-mcp-servers)
 
