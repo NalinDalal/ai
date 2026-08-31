@@ -2,7 +2,7 @@
 
 ## Phase 0: Programming Foundations & Mathematics
 
-### [Week 1-2: Python + Math Essentials](./week-1-2-python-basics/readme.md)
+### [Week 1-2: Python + Math Essentials](https://github.com/NalinDalal/python-basics)
 
 ---
 
@@ -55,7 +55,6 @@
 
 **Time Investment:** 35-40 hours
 
-
 **AI Engineering Resources - LLMs:**
 
 - [The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/) ← **MUST READ**
@@ -81,6 +80,7 @@
 - [Developing and Training LLMs From Scratch](https://www.youtube.com/watch?v=qL4JY6Y5pmA)
 - [LLM Course - GitHub](https://github.com/mlabonne/llm-course)
 - [LLM Course - Hugging Face](https://huggingface.co/learn/llm-course/chapter1/1)
+- [LLM from scratch - Video Lecture](https://x.com/0xCodez/status/2075599273048039806)
 
 **LLM Frameworks:**
 
@@ -109,6 +109,7 @@
 
 [GPipe: Easy Scaling with Micro-Batch Pipeline Parallelism](https://arxiv.org/abs/1811.06965)
 [LLM from scratch](https://github.com/rasbt/LLMs-from-scratch)
+
 - [Building LLMs from the Ground Up - Sebastian Raschka](https://www.youtube.com/watch?v=quh7z1q7-uc)
 
 **AI Engineering - Infrastructure (parallelize your training):**
@@ -135,7 +136,6 @@ zero-shot → few-shot → CoT → then Fine-tuning
 
 - [Chain-of-Thought Prompting Elicits Reasoning in Large Language Models](https://arxiv.org/pdf/2201.11903) ← **MUST READ**
 - [Demystifying Long Chain-of-Thought Reasoning in LLMs](https://arxiv.org/pdf/2502.03373)
-
 
 - Fine-tuning LLMs: Using pre-trained models like GPT, BERT, etc.
 - Frameworks: Hugging Face Transformers library
@@ -268,7 +268,6 @@ CLIP: [Learning Transferable Visual Models from Natural Language Supervision](ht
 - [Large Language Monkeys: Scaling Inference Compute with Repeated Sampling](https://arxiv.org/pdf/2407.21787) ← **KEY PAPER**
 - [Scale model test times is better than scaling parameters](https://arxiv.org/pdf/2408.03314)
 - [Training Large Language Models to Reason in a Continuous Latent Space](https://arxiv.org/pdf/2412.06769)
-
 
 ---
 
@@ -532,7 +531,7 @@ CLIP: [Learning Transferable Visual Models from Natural Language Supervision](ht
     - **Mini-project:** Swap one Transformer block in your mini-GPT with an MoE/SSM block
 
 - [FlashAttention](https://arxiv.org/pdf/2205.14135)
-- [Multi Query Attention](https://arxiv.org/pdf/1911.02150) 
+- [Multi Query Attention](https://arxiv.org/pdf/1911.02150)
 - [Grouped Query Attention](https://arxiv.org/pdf/2305.13245)
 
 **AI Engineering - Vectorization:**
@@ -548,7 +547,6 @@ CLIP: [Learning Transferable Visual Models from Natural Language Supervision](ht
 **AI Engineering - VideoRoPE (position embeddings):**
 
 - [VideoRoPE: Rotary Position Embedding](https://arxiv.org/pdf/2502.05173)
-
 
 **Production & Deployment:**
 
@@ -729,6 +727,7 @@ CLIP: [Learning Transferable Visual Models from Natural Language Supervision](ht
 - **CS231n: Convolutional Neural Networks for Visual Recognition**
 
 ### Must-Read AI Papers (Landmarks)
+
 - [Attention Is All You Need](https://arxiv.org/pdf/1706.03762) ← **START HERE**
 - [Generative Adversarial Networks (GANs)](https://arxiv.org/abs/1406.2661)
 - [GPT: Improving Language Understanding by Generative Pre-Training](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf)
@@ -741,6 +740,7 @@ CLIP: [Learning Transferable Visual Models from Natural Language Supervision](ht
 ## Quick Reference: AI Engineering Priority Papers
 
 ### MUST READ First (before anything else):
+
 1. **Attention is All You Need** - Core Transformer
 2. **Byte-pair Encoding** - Tokenization
 3. **FlashAttention** - Speed optimization
@@ -748,6 +748,7 @@ CLIP: [Learning Transferable Visual Models from Natural Language Supervision](ht
 5. **Mamba** - SSM alternative
 
 ### Build These Projects:
+
 1. Mini-Transformer from scratch (Week 12)
 2. BPE tokenizer (Week 12)
 3. RAG pipeline with FAISS (Week 18-19)
@@ -755,6 +756,7 @@ CLIP: [Learning Transferable Visual Models from Natural Language Supervision](ht
 5. Fine-tuned model with RLHF (Week 24-25)
 
 ### Production Skills:
+
 - Ray for distributed training
 - FAISS/Milvus for vector search
 - FastAPI for serving

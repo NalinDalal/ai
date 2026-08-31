@@ -1,16 +1,96 @@
-note: everything is in place, need to check for some files and then actually push them,
-see like week-7-neural-network
-need to push it into subtree also, like that
+# AI
 
-now like week-7-neural-network has own-neural-network
-that is internal folder for it, not pushed, hence need to see that,
-use opencode for this
+My AI engineering learning index.
 
-things is we were creating branched that created confusion un-necessarily
-now likely need to mitigate them
+This repository does **not** contain implementations. It is a curated map of the work, the current focus, and the rules of how this project is organized.
 
-also things happened like ai has main branch pushed to have content of week-9-deep-learning on main
-which is a fuck up right, so have to mitigate things like this hence
+---
 
-actually what we did was have folder like cifar-10 which were individual, but we said let's push it to ai repo also so that we have what a collection of individual yet grouped into one 
-like wise this created 4-5 subtree which smoked me
+## Rules
+
+- **`ai` is index only.** No implementations live here. No notebooks, no scripts, no experiments.
+- **Each body of work lives in its own repository.** Repos are linked from this README.
+- **No git subtrees, no submodules, no shared history.** Repos are independent. If one moves or is rewritten, you update a link here.
+- **Private scratch is allowed.** Messy experiments, broken code, and half-formed ideas stay local until something is worth publishing.
+- **Curriculum is guidance, not a checklist.** We progress by building and breaking real systems, not by completing week numbers.
+- **Publishing is the exhaust from the work.** We learn, implement, experiment, break, measure, understand — then publish. Not the other way around.
+
+---
+
+## Repositories
+
+### Foundations
+
+| Topic | Repository | Description |
+|-------|-----------|-------------|
+| Python + Math | [python-basics](https://github.com/NalinDalal/python-basics) | Python, NumPy, Pandas, matplotlib, linear algebra, calculus, statistics, probability |
+| Classical ML | [machine-learning](https://github.com/NalinDalal/machine-learning) | Linear models, trees, SVMs, clustering, PCA, autoencoders, RL basics |
+| Neural Networks | [neural-networks](https://github.com/NalinDalal/neural-networks) | Perceptron, backpropagation, DLS course mapping, paper notes |
+| From-scratch NN library | [own-neural-net](https://github.com/NalinDalal/own-neural-net) | Dense layers, activations, optimizers, losses, model training — no high-level APIs |
+| Autograd reference | [micrograd](https://github.com/NalinDalal/micrograd) | Karpathy's tiny autograd engine and NN library |
+
+### Deep Learning
+
+| Topic | Repository | Description |
+|-------|-----------|-------------|
+| CNNs | [cnn-architectures](https://github.com/NalinDalal/cnn-architectures) | NumPy + PyTorch CNN comparison, CIFAR-10, ResNet, face recognition |
+| AlexNet paper | [ImageNet-Classification-with-Deep-Convolutional-Neural-Networks-AlexNet-paper](https://github.com/NalinDalal/ImageNet-Classification-with-Deep-Convolutional-Neural-Networks-AlexNet-paper) | Paper notes and implementation |
+| Object Detection (YOLO) | [object-detect-cnn](https://github.com/NalinDalal/object-detect-cnn) | YOLO paper notes and implementation |
+| Deep Learning | [week-9-deep-learning](https://github.com/NalinDalal/week-9-deep-learning) | Backprop, initialization, regularization, optimization |
+| RNNs | [rnn](https://github.com/NalinDalal/rnn) | RNN, LSTM from scratch with BPTT, gradient clipping |
+| RNNs (Karpathy) | [rnn-karpathy](https://github.com/NalinDalal/rnn-karpathy) | Character-level LSTM, truncated BPTT, temperature sampling |
+| LSTM + Word2Vec | [lstm-word2Vec](https://github.com/NalinDalal/lstm-word2Vec) | LSTM language modeling, Word2Vec, t-SNE visualizations |
+| Sequence Models | [Sequence-Models](https://github.com/NalinDalal/Sequence-Models) | Seq2Seq, NMT, attention, English→French translator |
+| Transformers | [transformers](https://github.com/NalinDalal/transformers) | Transformer architecture, ViT, BPE tokenization, Switch Transformer |
+
+### Research
+
+| Topic | Repository | Description |
+|-------|-----------|-------------|
+| Paper Reproductions | See individual repos above | Experiments and reproductions are kept alongside implementations |
+| Research Notes | See [ai.md](./ai.md) | Complete curriculum roadmap, paper list, and resource index |
+
+---
+
+## Current Focus
+
+**Learning:** Python fundamentals, NumPy, linear algebra, probability, statistics
+
+**Building:** [machine-learning](https://github.com/NalinDalal/machine-learning) — implementing classical ML algorithms from scratch
+
+**Reading:** See [ai.md](./ai.md) for the full curriculum roadmap
+
+**Current question:** How does optimization actually behave when we change batch size and learning rate?
+
+---
+
+## How to Use This Repo
+
+- **Start here:** Read this README to understand what is being built and where.
+- **Navigate to implementations:** Each row in the tables above links to a standalone repository with actual code, READMEs, and experiment logs.
+- **Curriculum reference:** [ai.md](./ai.md) contains the complete learning roadmap, paper list, and resource index.
+- **Project ideas:** [project.md](./project.md) contains project briefs and future plans.
+- **Reading tracker:** [paper-read.md](./paper-read.md) tracks papers being read.
+
+---
+
+## What This Repo Does Not Contain
+
+- No implementation files (`.py`, `.ipynb`, etc.)
+- No experiment outputs or model checkpoints
+- No generated artifacts
+
+Those belong in the repositories linked above.
+
+---
+
+## Structure
+
+```
+NalinDalal/ai          ← You are here. Index only.
+├── README.md          ← This file. The map.
+├── ai.md              ← Complete curriculum, papers, resources
+├── project.md         ← Project ideas and briefs
+├── paper-read.md      ← Paper reading tracker
+└── research-notes/    ← Learning notes and summaries
+```
