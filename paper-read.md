@@ -255,3 +255,76 @@ Key questions the paper answers:
 6. **Summarize (20-30m):** 300-500 words: 1) problem, 2) method, 3) main result, 4) limitations, 5) a one-line idea for extending it.
 
 **Mini-rule:** If you can't implement a minimal version in 2 days, you didn't read it properly.
+
+---
+
+## Build in Public
+
+Every paper reproduction is not just learning. It is content.
+
+### The loop
+
+```
+Read → Implement → Reproduce → Break → Experiment → Document → Publish → Discuss
+```
+
+### Three assets from one piece of work
+
+1. **Portfolio** — recruiters and engineers can inspect actual implementations and results
+2. **Proof of skill** — evidence you understand the material, not claims about knowing ML
+3. **Audience** — engineers follow the experiments, comment with insights, and sometimes collaborate
+
+### Identity
+
+> I don't just read ML papers. I implement them.
+
+Make that the recurring theme.
+
+### Progression metrics
+
+Track these publicly:
+
+```text
+Papers read:          0 → 5 → 10 → 20
+Implementations:      0 → 5 → 10 → 15
+Reproductions:        0 → 3 → 7 → 10
+Experiments:          0 → 8 → 20 → 40
+Research extensions:  0 → 1 → 3 → 5
+```
+
+### Distribution
+
+- **GitHub** — technical source of truth: code, results, experiment logs
+- **Website / blog** — research journal: what you did, what you found, what surprised you
+- **X / LinkedIn / Reddit / HN** — distribution layer: posts about the process and findings
+
+The key is to make public content about the **process and results**, not "look at me reading papers."
+
+For example:
+
+> I implemented the core Transformer architecture from *Attention Is All You Need* from scratch.
+>
+> I expected X.
+> The paper reported Y.
+> My reproduction got Z.
+> The gap was caused by ___.
+>
+> Then I changed ___.
+> Surprisingly, ___ happened.
+>
+> Full implementation + experiment logs: [GitHub]
+
+### Compounding effect
+
+Your audience can become part of the research process.
+
+Someone might comment:
+> "Your reproduction differs because you're using post-LN instead of pre-LN."
+
+Then you investigate it. The public discussion actually improves your work.
+
+### Rule
+
+Don't optimize for audience growth. Optimize for the work.
+
+If the experiments are genuinely interesting, content extracts itself.
