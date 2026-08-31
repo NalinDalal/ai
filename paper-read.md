@@ -97,7 +97,149 @@ Papers to read, organized by topic. Each entry tracks status, links, and notes.
 1. **Pick a paper** from the table above based on your current phase
 2. **Follow the 6-step recipe** below
 3. **Update the status** when you finish: 🔲 → 🔄 → ✅
-4. **Add notes** about what you learned or found confusing
+4. **Document your reproduction** using the template below
+5. **Add notes** about what you learned or found confusing
+
+---
+
+## Paper Reproduction Template
+
+Use this template for every paper you implement. Copy it into the paper's notes or into a dedicated `notes/` folder in the relevant repo.
+
+```markdown
+# Paper: [Title]
+
+**Paper:** [Title with link](https://arxiv.org/abs/XXXX.XXXXX)
+**Authors:** Author list
+**Year:** Year
+**Status:** 🔲 / 🔄 / ✅ / ⏭️
+
+---
+
+## What I Read
+
+Single-sentence claim of the paper:
+
+> [One sentence: what the paper proposes and why it matters]
+
+Key questions the paper answers:
+1. [Question 1]
+2. [Question 2]
+3. [Question 3]
+
+---
+
+## What I Understood
+
+### Core Concepts
+- [Concept 1]: [Explanation in my own words]
+- [Concept 2]: [Explanation in my own words]
+
+### Key Equations
+- **Equation 1:** `[equation]` — [What it does]
+- **Equation 2:** `[equation]` — [What it does]
+
+### Architecture
+[Brief description of the model/approach architecture]
+
+### Prerequisites
+- [ ] [Concept/skill needed 1]
+- [ ] [Concept/skill needed 2]
+
+---
+
+## What I Reproduced
+
+**Implementation repo:** [link to standalone repo or folder]
+
+**Scope of reproduction:**
+- [x] Core algorithm/block from scratch
+- [x] Full model architecture
+- [ ] Full training pipeline
+- [ ] Paper-reported experiment
+
+**Dataset:** [Dataset name, size, preprocessing]
+
+**Framework:** PyTorch / NumPy / TensorFlow
+
+---
+
+## Tweaks & Modifications
+
+| What I changed | Why I changed it | Result |
+|----------------|------------------|--------|
+| [Tweak 1] | [Reason] | [Outcome] |
+| [Tweak 2] | [Reason] | [Outcome] |
+
+**What I had to simplify:**
+- [Simplification 1]: [Reason]
+
+**What I couldn't reproduce:**
+- [Limitation 1]: [Reason]
+
+---
+
+## What I Got
+
+### My Results
+
+| Metric | Paper | My Implementation | Delta |
+|--------|-------|-------------------|-------|
+| Accuracy | 85% | 82% | -3% |
+| Training time | 2h | 1.5h | -25% |
+| Parameters | 1.2M | 1.2M | 0% |
+
+### Training Curves
+[Link to images/plots]
+
+### Observations
+- [Observation 1]
+- [Observation 2]
+
+---
+
+## Comparison
+
+### What Matched
+- [x] [Aspect that matched paper results]
+- [x] [Aspect that matched paper results]
+
+### What Didn't Match
+- [ ] [Aspect that differed]: [Possible reason]
+- [ ] [Aspect that differed]: [Possible reason]
+
+### Why I Think Differences Exist
+- [Reason 1]
+- [Reason 2]
+
+---
+
+## Research Gap / Extension
+
+**Original paper limitation:**
+[What the paper acknowledges as a limitation]
+
+**My question:**
+[What I wonder about]
+
+**My experiment:**
+[What I tried to test]
+
+**Result:**
+- [Finding 1]
+- [Finding 2]
+
+**Conclusion:**
+[One-line takeaway]
+
+---
+
+## GitHub & Public Output
+
+**Repo:** [link]
+**Blog/Notes:** [link if published]
+**Experiment logs:** [link or path]
+```
 
 ---
 
