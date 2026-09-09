@@ -1,6 +1,4 @@
-# AI Curriculum
-
-## Timeline : 8 months. September to April.
+# AI Curriculum | Timeline : 8 months. September to April.
 
 **Rule:** curriculum is guidance, not a checklist. We progress by building and breaking real systems, not by completing week numbers.
 
