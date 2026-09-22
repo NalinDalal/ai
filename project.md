@@ -20,6 +20,26 @@
 | 14 | Prompt Registry | Versioning, A/B routing, rollback |
 | 15 | Data Flywheel | Feedback → synthetic data → LoRA loop |
 
+## Production AI Systems
+
+| # | Project | Core Skill |
+|---|---------|------------|
+| 1 | Production RAG Pipeline | Ingestion, chunking, hybrid search, reranking, cited answers over 1000+ docs |
+| 2 | Structured Output Engine | Pydantic schema enforcement with retries, validation, graceful fallbacks on malformed JSON |
+| 3 | Context Assembly Service | Dynamic context builder that budgets tokens across memory, docs & tools per request |
+| 4 | LLM Evaluation Harness | Golden dataset + LLM-as-a-judge + CI gate that blocks merges on quality regression |
+| 5 | Semantic Cache Layer | Embedding-based cache returning stored answers for similar queries, with hit-rate tracking |
+| 6 | Model Routing Gateway | Complexity-based router across 3 model tiers with fallbacks and per-request cost tracking |
+| 7 | Multi-Tenant LLM API | Per-tenant keys, rate limits, token budgets, isolated data access |
+| 8 | Fine-Tuning Pipeline | LoRA/QLoRA fine-tune of a small model on synthetic data, benchmarked vs prompt-only baseline |
+| 9 | Agent Memory System | Working + episodic + semantic memory with compression and eviction policies |
+| 10 | Guardrails Middleware | Input/output filtering, PII redaction, injection detection as a reusable service layer |
+| 11 | Streaming Response Infrastructure | SSE streaming with backpressure, reconnects, time-to-first-token tracking |
+| 12 | Prompt Versioning and A/B System | Registry for prompts and configs with rollback, traffic splitting, outcome tracking |
+| 13 | LLM Observability Stack | Tracing for prompts, tokens, latency, cost per request with alerting on anomalies |
+| 14 | Tool-Calling Framework | Typed function schemas with discovery, retries, sandboxed execution |
+| 15 | Self-Correcting RAG Agent | Query rewriting, retrieval critique, confidence-based fallback to web search |
+
 ---
 
 ## Capstone Projects
